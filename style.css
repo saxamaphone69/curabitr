@@ -1,0 +1,11 @@
+body {
+	background: #222 !important;
+	padding: 0 !important;
+	margin: 0 !important;
+}
+a {
+	text-decoration: none !important;
+}
+a:active, a:focus {
+	outline: 0;
+}
