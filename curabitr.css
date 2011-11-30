@@ -13,6 +13,16 @@ a {
 a:active, a:focus {
 	outline: 0 !important;
 }
+::selection {
+color: #fafafa;
+background-color: #f64685;
+text-shadow: none !important;
+}
+::-moz-selection {
+color: #fafafa;
+background-color: #f64685;
+text-shadow: none !important;
+}
 
 /*  */
 #header {
@@ -24,7 +34,6 @@ text-align: center !important;
 background-color: #222;
 background-image: -moz-linear-gradient(#444,#222);
 min-height: 20px;
-max-height: 40px;
 font-size: 0 !important;
 color: transparent !important;
 box-shadow: 0 0 20px 0 rgba(0,0,0,.75);
@@ -55,6 +64,28 @@ float: none !important;
 display: inline !important;
 }
 
+center {
+margin-top: 30px;
+}
+
+center b, center h3 {
+font-family: Helvetica, Arial;
+color: #b90000;
+text-shadow: 0 1px 1px #ffe9e9;
+}
+
+center blink {
+text-decoration: none !important;
+}
+
+center a {
+color: #2083fe !important;
+}
+
+center a:hover {
+text-shadow: none;
+}
+
 /* main body */
 form[name="delform"] {
 margin: 30px 75px 0 20px !important;
@@ -65,9 +96,12 @@ margin: 30px 75px 0 20px !important;
 .logo, /* heading/logo (cause if you don't know what board you're on, you must have problems) */
 img[src^="http://static.4chan.org/support/"], /* ads (>2011 >not using adblock) */
 hr, /* horizontal rules on the page */
+script + center, /* for announcement styling */
 th[bgcolor="#e04000"], /* posting mode: reply */
 span[style="left: 5px; position: absolute;"], /* [return] */
+form[name="delform"] center, /* extra margin */
 .pages td:first-of-type, .pages td:last-of-type, /* previous and next page buttons */
+.pages + br, /* space it out */
 table[align="right"] tr:last-of-type, /* yotsuba style selector */
 #footer /* bottom nav and any copyright crap */ {
 display: none !important;
@@ -84,7 +118,7 @@ display: none;
 .postarea {
 position: fixed;
 right: -400px;
-bottom: 5px;
+bottom: 30px;
 -moz-transition: right 2s ease-in-out 3s;
 z-index: 5;
 }
@@ -362,6 +396,7 @@ background-image: -moz-linear-gradient(top, #eee, #ddd) !important;
 padding: 5px !important;
 border: 0 !important;
 border-radius: 5px !important;
+position: relative;
 }
 
 /* post time */
@@ -395,6 +430,20 @@ content: attr(title);
 font-size: 10pt;
 }
 
+
+/* moot and mods */
+.postername > SPAN, .postertrip > SPAN, .commentpostername > SPAN {
+font-size: 12pt;
+text-shadow: 0px 0px 5px pink;
+}
+
+blockquote > div {
+background-color: rgba(255,0,0,.15);
+padding: 3px !important;
+border: 0 !important;
+margin: 0 !important;
+}
+
 /* subject / name */
 .filetitle, .replytitle,
 .postername, .commentpostername {
@@ -405,6 +454,7 @@ background: none !important;
 .filetitle, .replytitle {
 color: #102073 !important;
 }
+
 /*
 .linkmail {
 color: #102073 !important;
@@ -467,6 +517,81 @@ border: 1px solid #AAA !important;
 background: rgba(255,255,255,.5) !important;
 border-radius: 3px !important;
 }
+
+/* pages */
+
+.pages {
+float: none !important;
+border-spacing: 0;
+border-collapse: collapse;
+display: block;
+position: relative;
+clear: both;
+width: 100%;
+background: none !important;
+border: 0 !important;
+text-align: center;
+margin: 20px 0;
+}
+
+.pages, .pages tbody, .pages tr, .pages td {
+display: block;
+}
+
+.pages td {
+padding: 0 !important;
+font-size: 0 !important;
+word-spacing: 7px;
+}
+
+.pages td:not(:nth-of-type(2)) {
+display: none;
+}
+
+.pages a, .pages b {
+font-size: 14px !important;
+color: #2d2d2d !important;
+padding: 3px 2px !important;
+min-width: 16px;
+display: inline-block;
+background-color: #fff;
+background-image: -moz-linear-gradient(#fff,#ddd);
+box-shadow: 0 1px 2px rgba(0,0,0,.5);
+border-radius: 3px !important;
+-moz-transition: box-shadow .2s ease-in-out;
+text-shadow: none;
+}
+
+.pages a:hover {
+box-shadow: 0 1px 4px rgba(0,0,0,.75);
+}
+
+.pages b {
+font-weight: 600;
+color: #ededed !important;
+background-image: -moz-linear-gradient(#4c4c4c,#2d2d2d);
+cursor: default;
+}
+
+.stub {
+margin: 8px 0;
+clear: both;
+}
+
+.stub a {
+display: inline-block;
+padding: 5px;
+font: 10pt Helvetica;
+background-image: -moz-linear-gradient(top, #eee, #ddd) !important;
+-moz-box-shadow: 0 0 1px #999;
+border-radius: 5px;
+}
+
+.stub a:hover {
+text-shadow: none;
+-moz-box-shadow: 0 0 2px #999;
+}
+
 /* thread watcher */
 #watcher {
 position: fixed !important;
@@ -500,6 +625,7 @@ text-decoration: none !important;
 color: #222;
 position: fixed;
 top: 21px;
+bottom: auto !important;
 opacity: .5;
 padding: 5px;
 border-radius: 4px;
@@ -518,7 +644,7 @@ content: " post(s)";
 #stats:hover #imagecount::after {
 content: " image(s)";
 }
-
+/*
 #updater {
 color: #777 !important;
 position: fixed;
@@ -533,21 +659,42 @@ z-index: 99;
 padding: 3px 5px;
 text-shadow: 0 1px 0px #fff;
 }
+*/
+
+#updater {
+color: #777 !important;
+top: auto !important;
+left: auto !important;
+bottom: 0 !important;
+right: 30px !important;
+background-image: -moz-linear-gradient(top, #eee, #ddd) !important;
+-moz-box-shadow: 0 -1px 2px #999;
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+padding: 3px;
+border: 0 !important;
+text-shadow: 0 1px 1px #fff;
+}
+
+#updater > .move {
+cursor: default !important;
+}
 
 #updater #count:not(.new):not(.error) {display:none}
 
 #updater .new {
 color: #20cc50;
 background: none !important;
--moz-animation-name: newpost;
+text-shadow: 0 0 2px lime;
+/*-moz-animation-name: newpost;
 -moz-animation-duration: 1s;
 -moz-animation-iteration-count: 10;
--moz-animation-direction: alternate;
+-moz-animation-direction: alternate;*/
 }
 }
-
+/*
 @-moz-keyframes newpost {
   100% {
-    text-shadow: 0 0 5px lime;
+    text-shadow: 0 0 6px lime;
   }
-}
+}*/
