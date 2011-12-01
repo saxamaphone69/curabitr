@@ -305,6 +305,7 @@ margin-bottom: 0 !important;
 display: block;
 font-size: 8pt;
 margin-left: 30px;
+margin-bottom: 5px;
 line-height: 10pt;
 color: #777;
 }
@@ -313,17 +314,26 @@ color: #777;
 display: none;
 }
 
-.container:before {
-content: "quoted by: ";
+.container::before {
+content: 'quoted by: ';
 }
 
-.container:after {
-content: ".";
+.container::after {
+content: '.';
 }
 
-.container a:last-of-type:not(:first-of-type):before {
-content: "and ";
+.container .backlink:last-of-type:not(:first-of-type)::before {
+content: ' and ';
 color: #777;
+text-shadow: none;
+cursor: text;
+}
+
+.container .backlink:not(:last-of-type):not(:nth-last-of-type(2))::after {
+content: ',';
+color: #777;
+text-shadow: none;
+cursor: text;
 }
 
 span[id^="norep"] > a:nth-of-type(1) {
