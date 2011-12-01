@@ -459,6 +459,8 @@ margin: 0 !important;
 .postername, .commentpostername {
 font-weight: 600 !important;
 background: none !important;
+display: inline-block;
+unicode-bidi: normal;
 }
 
 .filetitle, .replytitle {
