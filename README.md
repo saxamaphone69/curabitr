@@ -4,3 +4,7 @@ __curabitr__ is a userstyle for [4chan](http://www.4chan.org), created by Saxama
 
 ##Install
 To install curabitr for 4chan, you'll need the [Stylish](http://userstyles.org/stylish) add-on/extension for either Firefox or Chrome (latest version of each). As of now, only Firefox is supported.
+
+##IMPORTANT
+
+__Only Firefox is supported and 4chan x *MUST* be installed for this userstyle to function.__
