@@ -585,6 +585,56 @@ background-image: -moz-linear-gradient(#4c4c4c,#2d2d2d);
 cursor: default;
 }
 
+/* deleting posts and reporting */
+
+table[align=right] td {
+font: 8pt 'Helvetica', 'Arial', sans-serif !important;
+color: #777;
+background-color: #fafafa;
+position: fixed;
+right: -277px;
+bottom: 310px;
+opacity: .5;
+padding: 1px 0 0 5px !important;
+height: 25px;
+line-height: 25px !important;
+border-top-left-radius: 5px;
+border-bottom-left-radius: 5px;
+-moz-transition: all .2s;
+}
+
+table[align=right] td:hover {
+opacity: .9;
+right: 0;
+}
+
+table[align=right] input[name=pwd] {
+-moz-appearance: none;
+padding: 3px 2px !important;
+border: 1px solid #bbb !important;
+color: #bbb;
+border-radius: 3px;
+margin: 0 !important;
+line-height: 16px !important;
+width: 75px !important;
+}
+
+table[align=right] input[value=Delete],
+table[align=right] input[value=Report] {
+-moz-appearance: none;
+cursor: pointer;
+font: 8pt 'Helvetica', 'Arial', sans-serif;
+background-image: -moz-linear-gradient(#fafafa,#ccc);
+border: 1px solid #bbb;
+border-radius: 3px;
+text-transform: lowercase;
+color: #555;
+text-shadow: 0 1px 0 #fff;
+padding: 2px 0 1px 0 !important;
+min-height: 24px !important;
+margin-right: 3px;
+}
+
 .stub {
 margin: 8px 0;
 clear: both;
