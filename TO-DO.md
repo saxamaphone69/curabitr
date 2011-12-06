@@ -2,8 +2,6 @@
 ##To-Do List:
 
 * image expanding
-* updater (use curabitr styling not bubble)
-* quote preview (hover over backlinks + don't forget border/outline)
 * quick reply (change inputs, support mayhem and aerosmith)
 * /f/, /rs/ and other sub-domains
 * `.filetitle`, `.replytitle` styling
@@ -23,6 +21,7 @@
 * learn how to use options on userstyles
 * custom icons?
 	* make the gradient from the noise longer
+	* sticky, locked, refresh, file upload
 * get rid of the shitty boards from `#navtop` (use 4chan s?)
 * look into fixing `#navtop` positioning issues (clicking on a quote link, gets covered up because of navtop's `position: fixed`, changed because nav is now hidden)
 * turn all those tables into block elements
