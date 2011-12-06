@@ -1,19 +1,17 @@
 #curabitr
 ##To-Do List:
 
-* `.replyhl`
 * image expanding
-* updater
-* quote Preview (hover over backlinks + don't forget border/outline)
-* quick Reply
+* updater (use curabitr styling not bubble)
+* quote preview (hover over backlinks + don't forget border/outline)
+* quick reply (change inputs, support mayhem and aerosmith)
 * /f/, /rs/ and other sub-domains
 * `.filetitle`, `.replytitle` styling
-* implication styling
-* spoilers
-* `.omittedposts`
-* stubs
+* implication styling (still not happy with this)
+* spoilers (fix up `.unkfunc` and ::selection)
+* stubs (needs class names)
 
-##Other nit-picking
+##Other Nit-Picking
 
 * chrome support
 	* make anything that is `font-size: 0;` also `color: transparent;`
@@ -26,8 +24,8 @@
 * learn how to use options on userstyles
 * custom icons?
 	* make the gradient from the noise longer
-* get rid of the shitty boards from `#navtop`
-* look into fixing `#navtop` positioning issues (clicking on a quote link, gets covered up because of navtop's `position: fixed`
+* get rid of the shitty boards from `#navtop` (use 4chan s?)
+* look into fixing `#navtop` positioning issues (clicking on a quote link, gets covered up because of navtop's `position: fixed`, changed because nav is now hidden)
 * turn all those tables into block elements
 * fix the line-height for EVERYTHING
-* get rid of each thread having `br[clear=left]` and using `clear:both;` or `display:block`
+* get rid of each thread having `br[clear=left]` and using `clear:both;` or `display:block` (dhurr but what about vanilla 4chan!)
