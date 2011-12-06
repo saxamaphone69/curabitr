@@ -390,12 +390,12 @@ text-shadow: none;
 cursor: text;
 }
 
-span[id^="norep"] > a:nth-of-type(1) {
+span[id^="no"] > a:nth-of-type(1) {
 font-size: 0;
 color: transparent !important;
 }
 
-span[id^="norep"] > a:nth-of-type(1):before {
+span[id^="no"] > a:nth-of-type(1):before {
 content: "#";
 font-size: 10pt;
 color: #2b75c0 !important;
@@ -403,12 +403,12 @@ color: #2b75c0 !important;
 
 span[id^="nothread"] {
 font-size: 0;
-color: transparent !important;
+color: transparent;
 }
 
 span[id^="nothread"] a {
 font-size: 10pt;
-color: #2b75c0 !important;
+color: #2b75c0;
 }
 
 span[id^="nothread"] a:nth-of-type(3) {
@@ -428,7 +428,7 @@ span[id^="nothread"] a:nth-of-type(3):hover {
 box-shadow: 0 0 2px #bbb;
 }
 
-span[id^="nothread"] a:nth-of-type(3):focus, span[id^="nothread"] a:nth-of-type(3):active {
+span[id^="nothread"] a:nth-of-type(3):active {
 background-image: -webkit-linear-gradient(#ccc,#eee);
 background-image: -moz-linear-gradient(#ccc,#eee);
 }
@@ -825,6 +825,12 @@ padding: 5px !important;
 border-radius: 3px;
 }
 
+.qphl {
+outline: 0 !important;
+box-shadow: 0 0 5px #999 !important;
+}
+
+
 #qr {
 background: rgba(235,235,235,.85) !important;
 padding: 5px !important;
@@ -842,29 +848,69 @@ opacity: .9;
 
 #updater {
 color: #777 !important;
+background-image: -webkit-linear-gradient(#eee,#ddd) !important;
+background-image: -moz-linear-gradient(#eee,#ddd) !important;
 top: auto !important;
-left: auto !important;
-bottom: 0 !important;
 right: 30px !important;
-background-image: -webkit-linear-gradient(#eee, #ddd) !important;
-background-image: -moz-linear-gradient(#eee, #ddd) !important;
-box-shadow: 0 -1px 2px #999;
+bottom: 0 !important;
+left: auto !important;
+border: 0 !important;
+padding: 3px;
 border-top-left-radius: 3px;
 border-top-right-radius: 3px;
-padding: 3px;
-border: 0 !important;
-text-shadow: 0 1px 1px #fff;
+box-shadow: 0 0 1px #999;
 }
 
-#updater > .move {
+#updater .move {
 cursor: default !important;
+text-align: center;
 }
 
-#updater #count:not(.new):not(.error) {display:none}
+#updater #count:not(.new):not(.error) {
+display: none;
+}
 
 #updater .new {
 color: #20cc50;
 background: none !important;
-text-shadow: 0 0 2px lime;
 }
+
+#updater .error {
+color: #b90000 !important;
+}
+
+#updater input {
+margin-left: 3px;
+}
+
+#updater input[name="Interval"] {
+-webkit-appearance: none;
+-moz-appearance: none;
+text-align: center;
+padding: 3px 2px;
+border: 1px solid #bbb;
+border-radius: 3px;
+}
+
+#updater div:last-of-type {
+text-align: center;
+}
+
+#updater input[value="Update Now"] {
+-webkit-appearance: none;
+-moz-appearance: none;
+cursor: pointer;
+font-family: 'Helvetica', 'Arial', sans-serif;
+color: #555;
+text-shadow: 0 1px 0 #fff;
+background-image: -webkit-linear-gradient(#fafafa,#ccc);
+background-image: -moz-linear-gradient(#fafafa,#ccc);
+padding: 1px 3px;
+border: 1px solid #bbb;
+border-radius: 3px;
+margin: 1px;
+}
+
+#updater input[value="Update Now"]:hover {
+box-shadow: 0 0 2px #bbb;
 }
