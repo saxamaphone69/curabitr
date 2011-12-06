@@ -1,34 +1,61 @@
-@namespace url(http://www.w3.org/1999/xhtml);
 @-moz-document domain("boards.4chan.org") {
 
 /* defaultan */
 body {
-	background: #ebebeb url('http://i.imgur.com/9nhMM.png') top left repeat-x scroll !important;
-	padding: 0 !important;
-	margin: 0 !important;
+background: #ebebeb url('http://i.imgur.com/9nhMM.png') top left repeat-x scroll !important;
+padding: 0 !important;
+margin: 0 !important;
 }
+
 a {
-	text-decoration: none !important;
+color: #2b75c0 !important;
+text-decoration: none !important;
+-moz-transition: text-shadow .3s ease-in-out;
 }
+
+a:hover {
+text-shadow: 0 0 3px #3b86d2;
+-moz-transition: text-shadow .2s ease-in-out;
+}
+
 a:active, a:focus {
-	outline: 0 !important;
+outline: 0 !important;
 }
+
 ::selection {
 color: #fafafa;
-background-color: #f64685;
-text-shadow: none !important;
-}
-::-moz-selection {
-color: #fafafa;
-background-color: #f64685;
+background-color: deepPink;
 text-shadow: none !important;
 }
 
-/*  */
+::-moz-selection {
+color: #fafafa;
+background-color: deepPink;
+text-shadow: none !important;
+}
+
+/* shitblockan */
+#header + br, /* extra spacing at top of page */
+.logo, /* heading/logo (cause if you don't know what board you're on, you must have problems) */
+img[src^="http://static.4chan.org/support/"], /* ads (>2011 >not using adblock) */
+hr, /* horizontal rules on the page */
+script + center, /* for announcement styling */
+th[bgcolor="#e04000"], /* posting mode: reply */
+span[style="left: 5px; position: absolute;"], /* [return] */
+form[name="delform"] center, /* extra margin */
+.pages td:first-of-type, .pages td:last-of-type, /* previous and next page buttons */
+.pages + br, /* space it out */
+table[align="right"] tr:last-of-type, /* yotsuba style selector */
+#footer /* bottom nav and any copyright crap */ {
+display: none !important;
+}
+
 #header {
 position: fixed !important;
 left: 0 !important;
-top: 0 !important;
+opacity: .5;
+top: -21px !important;
+-moz-transition: all .2s;
 right: 0 !important;
 text-align: center !important;
 background-color: #222;
@@ -39,6 +66,27 @@ color: transparent !important;
 box-shadow: 0 0 20px 0 rgba(0,0,0,.75);
 border-bottom: 1px solid #222;
 z-index: 1;
+}
+
+#header::after {
+content: 'Navigation';
+font-size: 12px;
+color: #fafafa;
+position: absolute;
+display: inline-block;
+top: 21px;
+width: 200px;
+left: 50%;
+margin-left: -100px;
+background-color: #222;
+padding-bottom: 2px;
+border-bottom-left-radius: 3px;
+border-bottom-right-radius: 3px;
+}
+
+#header:hover {
+opacity: .95;
+top: 0 !important;
 }
 
 #header a {
@@ -64,6 +112,7 @@ float: none !important;
 display: inline !important;
 }
 
+/* announcements */
 center {
 margin-top: 30px;
 }
@@ -88,25 +137,11 @@ text-shadow: none;
 
 /* main body */
 form[name="delform"] {
-margin: 30px 75px 0 20px !important;
+width: 900px;
+margin: /*30px 75px 0 20px*/0 auto !important;
 }
 
-/* shitblockan */
-#header + br, /* extra spacing at top of page */
-.logo, /* heading/logo (cause if you don't know what board you're on, you must have problems) */
-img[src^="http://static.4chan.org/support/"], /* ads (>2011 >not using adblock) */
-hr, /* horizontal rules on the page */
-script + center, /* for announcement styling */
-th[bgcolor="#e04000"], /* posting mode: reply */
-span[style="left: 5px; position: absolute;"], /* [return] */
-form[name="delform"] center, /* extra margin */
-.pages td:first-of-type, .pages td:last-of-type, /* previous and next page buttons */
-.pages + br, /* space it out */
-table[align="right"] tr:last-of-type, /* yotsuba style selector */
-#footer /* bottom nav and any copyright crap */ {
-display: none !important;
-}
-
+/* postarea */
 .postarea .postblock,
 input[type="file"] > input[type="button"],
 .postarea small,
@@ -278,16 +313,6 @@ vertical-align: middle;
 background-image: -moz-linear-gradient(#ccc,#eee);
 }
 
-a {
-color: #2b75c0 !important;
--moz-transition: text-shadow .3s ease-in-out;
-}
-
-a:hover {
-text-shadow: 0 0 3px #3b86d2;
--moz-transition: text-shadow .2s ease-in-out;
-}
-
 /* images with the borders */
 img[md5] {
 border: 4px solid #fafafa !important;
@@ -297,15 +322,28 @@ outline: 1px solid #bbb;
 margin: 3px 7px 5px 3px !important;
 }
 
-.reply img {
+.reply img, .replyhl img {
 margin-bottom: 0 !important;
+}
+
+.omittedposts {
+font-size: 11px;
+text-shadow: none !important;
+display: block;
+clear: both;
+float: right;
+padding: 2px 5px;
+margin-right: 20px;
+margin-bottom: -1px;
+background-image: -moz-linear-gradient(#fafafa, #ddd);
+border-top-left-radius: 5px;
+border-top-right-radius: 5px;
 }
 
 .container {
 display: block;
 font-size: 8pt;
 margin-left: 30px;
-margin-bottom: 5px;
 line-height: 10pt;
 color: #777;
 }
@@ -378,23 +416,6 @@ table {
 clear: both;
 position: relative;
 }
-/*
-td[nowrap] {
-position: absolute;
-right: 3px;
-bottom: 3px;
-font-size: 0 !important;
-color: #222 !important;
-border-radius: 3px;
-padding: 3px 5px 0px 20px !important;
-background: #fafafa url('file:///C:/Users/Johnny/Desktop/like.png') no-repeat 2px center;
-}
-
-td[nowrap]::after {
-content: "Like this on Facebook";
-font-size: 8pt !important;
-}
-*/
 
 /* replies */
 td.reply {
@@ -407,6 +428,20 @@ padding: 5px !important;
 border: 0 !important;
 border-radius: 5px !important;
 position: relative;
+width: 100%;
+}
+
+td.replyhl {
+font: 10pt Helvetica !important;
+line-height: 12pt !important;
+color: #777 !important; /* this is to colour the time in replies */
+background-image: -moz-linear-gradient(top, #eee, #ddd) !important;
+-moz-box-shadow: 0 0 5px #999;
+padding: 5px !important;
+border: 0 !important;
+border-radius: 5px !important;
+position: relative;
+width: 100%;
 }
 
 /* post time */
@@ -426,7 +461,8 @@ line-height: 12pt;
 content: " ";
 }
 
-.reply .filesize a:first-of-type::before {
+.reply .filesize a:first-of-type::before,
+.replyhl .filesize a:first-of-type::before {
 content: " : ";
 color: #777;
 }
@@ -440,6 +476,13 @@ content: attr(title);
 font-size: 10pt;
 }
 
+.forwardlink {
+color: #102073 !important;
+}
+
+.unkfunc {
+color: #669933 !important;
+}
 
 /* moot and mods */
 .postername > SPAN, .postertrip > SPAN, .commentpostername > SPAN {
@@ -528,6 +571,39 @@ margin: 0;
 border: 1px solid #AAA !important;
 background: rgba(255,255,255,.5) !important;
 border-radius: 3px !important;
+}
+
+/* bye bye unicode fags :) */
+.filetitle, .replytitle,
+.postername, .commentpostername,
+.postertrip {
+unicode-bidi: normal;
+display:inline-block;
+}
+
+/* spoilers */
+
+.spoiler {
+color: transparent !important;
+background: #222 !important;
+border-radius: 3px;
+box-shadow: 0 0 3px rgba(0,0,0,.25);
+-moz-transition: all .2s ease-in-out;
+}
+
+.spoiler:hover {
+color: #222 !important;
+background: none !important;
+box-shadow: none;
+}
+
+.quotelink {
+text-shadow: none;
+}
+
+.spoiler .unkfunc {
+color: inherit !important;
+text-shadow: none;
 }
 
 /* pages */
@@ -706,22 +782,27 @@ content: " post(s)";
 #stats:hover #imagecount::after {
 content: " image(s)";
 }
-/*
-#updater {
-color: #777 !important;
-position: fixed;
-bottom: 0;
-right: 5px !important;
-background-image: -moz-linear-gradient(top, #eee, #ccc) !important;
--moz-box-shadow: 0 -1px 5px rgba(0,0,0,.25);
-z-index: 99;
--moz-border-radius-topleft: 3px;
--moz-border-radius-topright: 3px;
--moz-user-select: none;
-padding: 3px 5px;
-text-shadow: 0 1px 0px #fff;
+
+#qp {
+border: 0 !important;
+background: rgba(235,235,235,.85) !important;
+padding: 5px !important;
+border-radius: 3px;
 }
-*/
+
+#qr {
+background: rgba(235,235,235,.85) !important;
+padding: 5px !important;
+border-radius: 3px;
+opacity: .5;
+border: 0 !important;
+box-shadow: 0 0 4px 2px rgba(0,0,0,.15);
+-moz-transition: opacity .3s ease-in-out;
+}
+
+#qr:hover {
+opacity: .9;
+}
 
 #updater {
 color: #777 !important;
