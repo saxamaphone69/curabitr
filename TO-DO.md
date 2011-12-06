@@ -13,8 +13,7 @@
 
 ##Other Nit-Picking
 
-* chrome support
-	* make anything that is `font-size: 0;` also `color: transparent;`
+* why must chrome be so... 2nd place ;___; [long live firefox \o\ \o/ /o/]
 * vanilla 4chan support
 * unify style a bit more
 	* check colours
