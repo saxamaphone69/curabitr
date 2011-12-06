@@ -10,12 +10,12 @@ margin: 0 !important;
 a {
 color: #2b75c0 !important;
 text-decoration: none !important;
--moz-transition: text-shadow .3s ease-in-out;
+-webkit-transition: text-shadow .3s;
+-moz-transition: text-shadow .3s;
 }
 
 a:hover {
 text-shadow: 0 0 3px #3b86d2;
--moz-transition: text-shadow .2s ease-in-out;
 }
 
 a:active, a:focus {
@@ -55,10 +55,12 @@ position: fixed !important;
 left: 0 !important;
 opacity: .5;
 top: -21px !important;
+-webkit-transition: all.2s;
 -moz-transition: all .2s;
 right: 0 !important;
 text-align: center !important;
 background-color: #222;
+background-image: -webkit-linear-gradient(#444,#222);
 background-image: -moz-linear-gradient(#444,#222);
 min-height: 20px;
 font-size: 0 !important;
@@ -95,12 +97,12 @@ padding: 0 !important;
 font-size: 12px !important;
 line-height: 20px;
 margin: 0 3px;
--moz-transition: text-shadow .5s ease-in-out;
+-webkit-transition: text-shadow .5s;
+-moz-transition: text-shadow .5s;
 }
 
 #header a:hover {
 text-shadow: 0 0 2px #fff, 0 0 5px #eee;
--moz-transition: text-shadow .2s ease-in-out;
 }
 
 #navtop {
@@ -118,7 +120,7 @@ margin-top: 30px;
 }
 
 center b, center h3 {
-font-family: Helvetica, Arial;
+font-family: 'Helvetica', 'Arial', sans-serif;
 color: #b90000;
 text-shadow: 0 1px 1px #ffe9e9;
 }
@@ -154,18 +156,21 @@ display: none;
 position: fixed;
 right: -400px;
 bottom: 30px;
+-webkit-transition: right 2s ease-in-out 3s;
 -moz-transition: right 2s ease-in-out 3s;
 z-index: 5;
 }
 
 .postarea:hover {
 right: 5px;
--moz-transition: right .5s ease-in-out;
+-webkit-transition: right .5s;
+-moz-transition: right .5s;
 }
 
 .postarea:hover textarea {
 right: 0;
--moz-transition: right .5s ease-in-out;
+-webkit-transition: right .5s;
+-moz-transition: right .5s;
 }
 
 .postarea form {
@@ -178,8 +183,9 @@ border-collapse: collapse;
 
 .postarea .inputtext:not([name="sub"]):not([name="pwd"]),
 .postarea input[name="recaptcha_response_field"] {
+-webkit-appearance: none;
 -moz-appearance: none;
-font-family: Helvetica, Arial;
+font-family: 'Helvetica', 'Arial', sans-serif;
 padding: 3px 2px !important;
 border: 1px solid #bbb !important;
 border-radius: 3px;
@@ -190,6 +196,7 @@ z-index: 2 !important;
 }
 
 .postarea .inputtext[name="sub"] {
+-webkit-appearance: none !important;
 -moz-appearance: none !important;
 padding: 3px 2px !important;
 border: 1px solid #bbb !important;
@@ -200,9 +207,11 @@ line-height: 16px !important;
 }
 
 #com_submit {
+-webkit-appearance: none !important;
 -moz-appearance: none !important;
 cursor: pointer;
-font-family: Helvetica, Arial;
+font-family: 'Helvetica', 'Arial', sans-serif;
+background-image: -webkit-linear-gradient(#fafafa,#ccc);
 background-image: -moz-linear-gradient(#fafafa,#ccc);
 border: 1px solid #bbb;
 border-radius: 3px;
@@ -245,12 +254,14 @@ border-radius: 3px;
 .postarea textarea {
 position: relative;
 right: 125px;
+-webkit-transition: right 1s ease-in-out 3.5s;
 -moz-transition: right 1s ease-in-out 3.5s;
 }
 
 .postarea input[type="file"] > input[type="text"] {
+-webkit-appearance: none;
 -moz-appearance: none;
-font-family: Helvetica, Arial;
+font-family: 'Helvetica', 'Arial', sans-serif;
 padding: 3px 2px !important;
 border: 1px solid #bbb !important;
 border-radius: 3px;
@@ -260,6 +271,7 @@ line-height: 16px !important;
 }
 
 .postarea input[name="pwd"] {
+-webkit-appearance: none;
 -moz-appearance: none;
 padding: 3px 2px !important;
 border: 1px solid #bbb !important;
@@ -275,6 +287,7 @@ width: 75px !important;
 
 .postarea tr:nth-of-type(3) td {
 font-size: 0 !important;
+color: transparent !important;
 }
 
 .postarea tr:nth-of-type(3) label {
@@ -286,14 +299,14 @@ line-height: 24px;
 text-transform: lowercase;
 letter-spacing: -5px;
 color: transparent;
+-webkit-transition-property: color, letter-spacing;
+-webkit-transition: .5s ease-in-out;
 -moz-transition-property: color, letter-spacing;
 -moz-transition: .5s ease-in-out;
 z-index: 5;
 }
 
 .postarea tr:nth-of-type(3) label:hover {
--moz-transition-property: color, letter-spacing;
--moz-transition: .5s ease-in-out;
 color: black;
 letter-spacing: 0;
 }
@@ -306,10 +319,11 @@ vertical-align: middle;
 }
 
 #com_submit:hover {
--moz-box-shadow: 0 0 2px #bbb;
+box-shadow: 0 0 2px #bbb;
 }
 
 #com_submit:active {
+background-image: -webkit-linear-gradient(#ccc,#eee);
 background-image: -moz-linear-gradient(#ccc,#eee);
 }
 
@@ -318,6 +332,7 @@ img[md5] {
 border: 4px solid #fafafa !important;
 border-radius: 4px;
 outline: 1px solid #bbb;
+-webkit-outline-radius: 5px;
 -moz-outline-radius: 5px;
 margin: 3px 7px 5px 3px !important;
 }
@@ -335,6 +350,7 @@ float: right;
 padding: 2px 5px;
 margin-right: 20px;
 margin-bottom: -1px;
+background-image: -webkit-linear-gradient(#fafafa,#ddd);
 background-image: -moz-linear-gradient(#fafafa, #ddd);
 border-top-left-radius: 5px;
 border-top-right-radius: 5px;
@@ -376,23 +392,28 @@ cursor: text;
 
 span[id^="norep"] > a:nth-of-type(1) {
 font-size: 0;
+color: transparent !important;
 }
 
 span[id^="norep"] > a:nth-of-type(1):before {
 content: "#";
 font-size: 10pt;
+color: #2b75c0 !important;
 }
 
 span[id^="nothread"] {
 font-size: 0;
+color: transparent !important;
 }
 
 span[id^="nothread"] a {
 font-size: 10pt;
+color: #2b75c0 !important;
 }
 
 span[id^="nothread"] a:nth-of-type(3) {
 display: inline-block;
+background-image: -webkit-linear-gradient(#fafafa,#ccc);
 background-image: -moz-linear-gradient(#fafafa,#ccc);
 border: 1px solid #bbb;
 border-radius: 3px;
@@ -404,10 +425,11 @@ margin: 0 5px;
 }
 
 span[id^="nothread"] a:nth-of-type(3):hover {
--moz-box-shadow: 0 0 2px #bbb;
+box-shadow: 0 0 2px #bbb;
 }
 
 span[id^="nothread"] a:nth-of-type(3):focus, span[id^="nothread"] a:nth-of-type(3):active {
+background-image: -webkit-linear-gradient(#ccc,#eee);
 background-image: -moz-linear-gradient(#ccc,#eee);
 }
 
@@ -419,11 +441,12 @@ position: relative;
 
 /* replies */
 td.reply {
-font: 10pt Helvetica !important;
+font: 10pt 'Helvetica', 'Arial', sans-serif !important;
 line-height: 12pt !important;
-color: #777 !important; /* this is to colour the time in replies */
-background-image: -moz-linear-gradient(top, #eee, #ddd) !important;
--moz-box-shadow: 0 0 1px #999;
+color: #777 !important;
+background-image: -webkit-linear-gradient(#eee, #ddd) !important;
+background-image: -moz-linear-gradient(#eee, #ddd) !important;
+box-shadow: 0 0 1px #999;
 padding: 5px !important;
 border: 0 !important;
 border-radius: 5px !important;
@@ -432,11 +455,12 @@ width: 100%;
 }
 
 td.replyhl {
-font: 10pt Helvetica !important;
+font: 10pt 'Helvetica', 'Arial', sans-serif !important;
 line-height: 12pt !important;
-color: #777 !important; /* this is to colour the time in replies */
-background-image: -moz-linear-gradient(top, #eee, #ddd) !important;
--moz-box-shadow: 0 0 5px #999;
+color: #777 !important;
+background-image: -webkit-linear-gradient(#eee, #ddd) !important;
+background-image: -moz-linear-gradient(#eee, #ddd) !important;
+box-shadow: 0 0 5px #999;
 padding: 5px !important;
 border: 0 !important;
 border-radius: 5px !important;
@@ -452,7 +476,7 @@ color: #777;
 
 /* filesize and filenames */
 .filesize {
-font: 10pt Helvetica;
+font: 10pt 'Helvetica', 'Arial', sans-serif;
 color: #777;
 line-height: 12pt;
 }
@@ -469,11 +493,13 @@ color: #777;
 
 .filesize span {
 font-size: 0;
+color: transparent !important;
 }
 
 .filesize span:after {
 content: attr(title);
 font-size: 10pt;
+color: #777 !important;
 }
 
 .forwardlink {
@@ -485,7 +511,7 @@ color: #669933 !important;
 }
 
 /* moot and mods */
-.postername > SPAN, .postertrip > SPAN, .commentpostername > SPAN {
+.postername > span, .postertrip > span, .commentpostername > span {
 font-size: 12pt;
 text-shadow: 0px 0px 5px pink;
 }
@@ -552,14 +578,14 @@ color: #222 !important;
 
 /* trip */
 .postertrip {
-font-family: "Courier New";
+font-family: "Courier New", monospace;
 color: #222 !important;
 text-shadow: 0 0 1px #102073;
 background: none !important;
 }
 
 blockquote {
-font: 10pt Helvetica !important;
+font: 10pt 'Helvetica', 'Arial', sans-serif !important;
 color: #222;
 line-height: 12pt !important;
 margin: 0 0 0 20px !important;
@@ -588,7 +614,8 @@ color: transparent !important;
 background: #222 !important;
 border-radius: 3px;
 box-shadow: 0 0 3px rgba(0,0,0,.25);
--moz-transition: all .2s ease-in-out;
+-webkit-transition: all .2s;
+-moz-transition: all .2s;
 }
 
 .spoiler:hover {
@@ -629,6 +656,7 @@ display: block;
 .pages td {
 padding: 0 !important;
 font-size: 0 !important;
+color: transparent;
 word-spacing: 7px;
 }
 
@@ -642,11 +670,12 @@ color: #2d2d2d !important;
 padding: 3px 2px !important;
 min-width: 16px;
 display: inline-block;
-background-color: #fff;
+background-image: -webkit-linear-gradient(#fff,#ddd);
 background-image: -moz-linear-gradient(#fff,#ddd);
 box-shadow: 0 1px 2px rgba(0,0,0,.5);
 border-radius: 3px !important;
--moz-transition: box-shadow .2s ease-in-out;
+-webkit-transition: box-shadow .2s;
+-moz-transition: box-shadow .2s;
 text-shadow: none;
 }
 
@@ -657,6 +686,7 @@ box-shadow: 0 1px 4px rgba(0,0,0,.75);
 .pages b {
 font-weight: 600;
 color: #ededed !important;
+background-image: -webkit-linear-gradient(#4c4c4c,#2d2d2d);
 background-image: -moz-linear-gradient(#4c4c4c,#2d2d2d);
 cursor: default;
 }
@@ -676,6 +706,7 @@ height: 25px;
 line-height: 25px !important;
 border-top-left-radius: 5px;
 border-bottom-left-radius: 5px;
+-webkit-transition: all .2s;
 -moz-transition: all .2s;
 }
 
@@ -685,6 +716,7 @@ right: 0;
 }
 
 table[align=right] input[name=pwd] {
+-webkit-appearance: none;
 -moz-appearance: none;
 padding: 3px 2px !important;
 border: 1px solid #bbb !important;
@@ -697,9 +729,11 @@ width: 75px !important;
 
 table[align=right] input[value=Delete],
 table[align=right] input[value=Report] {
+-webkit-appearance: none;
 -moz-appearance: none;
 cursor: pointer;
 font: 8pt 'Helvetica', 'Arial', sans-serif;
+background-image: -webkit-linear-gradient(#fafafa,#ccc);
 background-image: -moz-linear-gradient(#fafafa,#ccc);
 border: 1px solid #bbb;
 border-radius: 3px;
@@ -719,15 +753,16 @@ clear: both;
 .stub a {
 display: inline-block;
 padding: 5px;
-font: 10pt Helvetica;
-background-image: -moz-linear-gradient(top, #eee, #ddd) !important;
--moz-box-shadow: 0 0 1px #999;
+font: 10pt 'Helvetica', 'Arial', sans-serif;
+background-image: -webkit-linear-gradient(#eee, #ddd) !important;
+background-image: -moz-linear-gradient(#eee, #ddd) !important;
+box-shadow: 0 0 1px #999;
 border-radius: 5px;
 }
 
 .stub a:hover {
 text-shadow: none;
--moz-box-shadow: 0 0 2px #999;
+box-shadow: 0 0 2px #999;
 }
 
 /* thread watcher */
@@ -739,12 +774,12 @@ border: 0 !important;
 border-radius: 4px;
 background-color: #e7e7e7 !important;
 box-shadow: 0 0 10px rgba(0,0,0,.25);
--moz-transition: opacity .1s ease-in-out;
+-webkit-transition: opacity .1s;
+-moz-transition: opacity .1s;
 }
 
 #watcher:hover {
 opacity: .8;
--moz-transition: opacity .1s ease-in-out;
 }
 
 #watcher > div {
@@ -797,7 +832,8 @@ border-radius: 3px;
 opacity: .5;
 border: 0 !important;
 box-shadow: 0 0 4px 2px rgba(0,0,0,.15);
--moz-transition: opacity .3s ease-in-out;
+-webkit-transition: opacity .3s;
+-moz-transition: opacity .3s;
 }
 
 #qr:hover {
@@ -810,8 +846,9 @@ top: auto !important;
 left: auto !important;
 bottom: 0 !important;
 right: 30px !important;
-background-image: -moz-linear-gradient(top, #eee, #ddd) !important;
--moz-box-shadow: 0 -1px 2px #999;
+background-image: -webkit-linear-gradient(#eee, #ddd) !important;
+background-image: -moz-linear-gradient(#eee, #ddd) !important;
+box-shadow: 0 -1px 2px #999;
 border-top-left-radius: 3px;
 border-top-right-radius: 3px;
 padding: 3px;
@@ -829,15 +866,5 @@ cursor: default !important;
 color: #20cc50;
 background: none !important;
 text-shadow: 0 0 2px lime;
-/*-moz-animation-name: newpost;
--moz-animation-duration: 1s;
--moz-animation-iteration-count: 10;
--moz-animation-direction: alternate;*/
 }
 }
-/*
-@-moz-keyframes newpost {
-  100% {
-    text-shadow: 0 0 6px lime;
-  }
-}*/
