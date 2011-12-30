@@ -2,7 +2,7 @@
 
 /* defaultan */
 body {
-background: #ebebeb url('http://i.imgur.com/9nhMM.png') top left repeat-x scroll !important;
+background: #ebebeb url('data:image/png;base64,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') !important;
 padding: 0 !important;
 margin: 0 !important;
 }
@@ -115,14 +115,16 @@ display: inline !important;
 }
 
 /* announcements */
-center {
-margin-top: 30px;
+/* pick a heading and stick with it moot, damn */
+hr + center {
+margin: 30px 0 20px;
 }
 
-center b, center h3 {
+center font *, center b, center font {
 font-family: 'Helvetica', 'Arial', sans-serif;
-color: #b90000;
+color: #b90000 !important;
 text-shadow: 0 1px 1px #ffe9e9;
+margin: 0;
 }
 
 center blink {
@@ -144,17 +146,32 @@ margin: /*30px 75px 0 20px*/0 auto !important;
 }
 
 /* postarea */
-.postarea .postblock,
+/* to-do from the top of my head */
+/* use the spoiler image from master (cause i reckon it's sexy),
+   add :place-holder text styling,
+   add button[disabled] (cooldown, 404) styling,
+   either wait for the #qr rewrite, or make it look a bit more presentable:
+      captcha image
+      autohide fanciness
+      opcaity transitions
+      captcha counter
+      autosubmit checkbox/label
+      multiple files
+*/
+
+/* hiding shiz */
 input[type="file"] > input[type="button"],
 .postarea small,
 .postarea .rules,
-.postarea td:empty {
+.postarea span:empty,
+.postarea td:empty,
+.postblock {
 display: none;
 }
 
 .postarea {
 position: fixed;
-right: -400px;
+right: -325px;
 bottom: 30px;
 -webkit-transition: right 2s ease-in-out 3s;
 -moz-transition: right 2s ease-in-out 3s;
@@ -173,132 +190,249 @@ right: 0;
 -moz-transition: right .5s;
 }
 
-.postarea form {
-margin: 0 !important;
-}
-
-.postarea table {
-border-collapse: collapse;
-}
-
-.postarea .inputtext:not([name="sub"]):not([name="pwd"]),
-.postarea input[name="recaptcha_response_field"] {
--webkit-appearance: none;
--moz-appearance: none;
-font-family: 'Helvetica', 'Arial', sans-serif;
-padding: 3px 2px !important;
-border: 1px solid #bbb !important;
-border-radius: 3px;
-margin: 1px 0 0 0 !important;
-line-height: 16px !important;
-width: 300px !important;
-z-index: 2 !important;
-}
-
-.postarea .inputtext[name="sub"] {
--webkit-appearance: none !important;
--moz-appearance: none !important;
-padding: 3px 2px !important;
-border: 1px solid #bbb !important;
-border-radius: 3px;
-width: 224px !important;
-margin: 1px 1px 0 0 !important;
-line-height: 16px !important;
-}
-
-#com_submit {
--webkit-appearance: none !important;
--moz-appearance: none !important;
-cursor: pointer;
-font-family: 'Helvetica', 'Arial', sans-serif;
-background-image: -webkit-linear-gradient(#fafafa,#ccc);
-background-image: -moz-linear-gradient(#fafafa,#ccc);
-border: 1px solid #bbb;
-border-radius: 3px;
-text-transform: lowercase;
-color: #555;
-text-shadow: 0 1px 0 #fff;
-padding: 2px 0 1px 0 !important;
-width: 75px;
-min-height: 19px;
-}
-
-#recaptcha_table *:not(input) {
-padding: 0 !important;
-height: auto !important;
-width: 300px !important;
-}
-
-#recaptcha_table tr[height] td[style*="padding"],
-#recaptcha_table tr+tr > td+td,
-input[type="file"] > input[type="button"]{
-display: none;
-}
-
-#recaptcha_challenge_field_holder {
-display: none !important;
-}
-
-.postarea #recaptcha_image {
-margin-top: 1px !important;
-width: 298px !important;
-border-color: #bbb !important;
-border-radius: 3px;
-}
-
-.postarea #recaptcha_image > img {
-width: 298px !important;
-border-radius: 3px;
-}
-
-.postarea textarea {
-position: relative;
-right: 125px;
+.postarea input:focus {
+right: 330px;
 -webkit-transition: right 1s ease-in-out 3.5s;
 -moz-transition: right 1s ease-in-out 3.5s;
 }
 
-.postarea input[type="file"] > input[type="text"] {
+.postarea:hover input:focus,
+.postarea:hover textarea:focus {
+right: 0;
+-webkit-transition: right .5s;
+-moz-transition: right .5s;
+}
+
+.postarea input:not(:focus) {
+right: 0;
+-webkit-transition: right .5s;
+-moz-transition: right .5s;
+}
+
+.postarea textarea {
+position: relative;
+right: 50px;
+-webkit-transition: right 1s ease-in-out 3.5s;
+-moz-transition: right 1s ease-in-out 3.5s;
+}
+
+.postarea textarea:focus {
+right: 330px;
+}
+
+.postarea form {
+margin: 0 !important;
+}
+
+.inputtext, input[type="file"] > input[type="text"], input[name="recaptcha_response_field"] {
 -webkit-appearance: none;
 -moz-appearance: none;
-font-family: 'Helvetica', 'Arial', sans-serif;
-padding: 3px 2px !important;
+font-family: Helvetica, Arial, sans-serif !important;
+font-size: 13px !important;
+line-height: 18px !important;
+color: #222;
+background-color: #fafafa;
+padding: 2px 2px 3px !important;
 border: 1px solid #bbb !important;
 border-radius: 3px;
-width: 224px !important;
-margin: 1px 1px 0 0 !important;
-line-height: 16px !important;
+margin: 0 !important;
+margin-bottom: 1px !important;
+width: 300px !important;
+vertical-align: baseline;
+position: relative !important;
+}
+
+input[type="file"] {
+-webkit-appearance: none;
+margin: 0;
+width: 244px !important;
+
+}
+
+input.inputtext, input[type="file"] > input[type="text"], input[name="recaptcha_response_field"] {
+height: auto !important;
+}
+
+textarea {
+min-height: 200px;
+resize: vertical;
+overflow: auto;
+}
+
+input[name="recaptcha_response_field"] {
+color: #222 !important;
+background-color: #fff;
+border-top-width: 0 !important;
+border-top-left-radius: 0;
+border-top-right-radius: 0;
+}
+
+/* silly chrumb~ */
+/* well, not really. it's just that an id overrides selectors such as above (in chrumb at least) */
+.recaptchatable #recaptcha_image {
+border: 0 !important;
+}
+
+.recaptchatable #recaptcha_response_field {
+border: 1px solid #bbb !important;
+border-top-width: 0 !important;
+}
+
+input[name="sub"], input[type="file"] > input[type="text"] {
+width: 244px !important;
 }
 
 .postarea input[name="pwd"] {
--webkit-appearance: none;
--moz-appearance: none;
-padding: 3px 2px !important;
-border: 1px solid #bbb !important;
 color: #bbb;
-border-radius: 3px;
-margin: 1px 0 0 0 !important;
-line-height: 16px !important;
-position: absolute;
-bottom: 0px;
+width: 55px !important;
+position: absolute !important;
+bottom: 0;
 right: 0;
-width: 75px !important;
+-webkit-transition: width .2s;
+-moz-transition: width .2s;
 }
 
-.postarea tr:nth-of-type(3) td {
+.webkit .postarea input[name="pwd"] {
+bottom: -1px;
+}
+
+.postarea input:focus {
+outline: none;
+}
+
+.postarea input[name="pwd"]:focus {
+width: 90px !important;
+z-index: 2;
+-webkit-transition: width .2s;
+-moz-transition: width .2s;
+}
+
+.postarea input[type="submit"], .postarea input[type="submit"][disabled] {
+-webkit-appearance: none;
+-moz-appearance: none;
+font-family: Helvetica, Arial, sans-serif;
+font-size: 13px;
+line-height: 18px !important;
+text-shadow: 0 1px 0 #fafafa;
+text-transform: lowercase;
+color: #777 !important;
+background-image: -webkit-linear-gradient(#fafafa,#cdcdcd);
+background-image: -moz-linear-gradient(#fafafa,#cdcdcd);
+padding: 0px 4px;
+border: 1px solid #bbb !important;
+border-radius: 3px;
+margin: 0 0 -0 1px !important;
+min-width: 55px;
+width: 55px;
+max-width: 55px;
+min-height: 25px;
+height: 25px;
+max-height: 25px;
+vertical-align: top;
+position: relative;
+cursor: pointer;
+}
+
+.postarea input[type="submit"][disabled]:active {
+background-color: #cdcdcd;
+}
+
+
+input[type="file"]::-webkit-file-upload-button {
+-webkit-appearance: none;
+-moz-appearance: none;
+font-family: Helvetica, Arial, sans-serif;
+font-size: 13px;
+line-height: 18px !important;
+text-shadow: 0 1px 0 #fafafa;
+text-transform: lowercase;
+color: #777 !important;
+background-image: -webkit-linear-gradient(#fafafa,#cdcdcd);
+background-image: -moz-linear-gradient(#fafafa,#cdcdcd);
+padding: 0px 4px;
+border: 1px solid #bbb;
+border-radius: 3px;
+margin: 0 0 -0 1px !important;
+min-width: 100px;
+width: 100px;
+max-width: 100px;
+min-height: 25px;
+height: 25px;
+max-height: 25px;
+vertical-align: top;
+position: relative;
+cursor: pointer;
+}
+
+input[type="submit"]:disabled {
+cursor: default;
+text-shadow: none;
+background-image: none;
+background-color: #cdcdcd;
+}
+
+.postarea table {
+border-spacing: 0;
+border-collapse: collapse;
+}
+
+#recaptcha_table tr[height="73"] td[style] a:not(:first-of-type),
+#recaptcha_table tr[height="73"] td:last-of-type,
+#recaptcha_table tr:last-of-type td:not(:first-of-type) {
+display: none;
+}
+
+#recaptcha_widget_div {
+width: 300px !important;
+position: relative;
+}
+
+#recaptcha_table tr[height] {
+height: auto !important;
+}
+
+#recaptcha_table *:not(input):not(img) {
+padding: 0 !important;
+}
+
+#recaptcha_image {
+border: 0 !important;
+position: relative !important;
+}
+
+#recaptcha_image > img {
+width: 298px !important;
+border: 1px solid #bbb !important;
+border-bottom: 0 !important;
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+}
+
+#recaptcha_reload {
+position: absolute !important;
+top: 0 !important;
+right: 0 !important;
+background-image: url('http://i.imgur.com/ljf6O.png');
+height: 0 !important;
+width: 16px !important;
+padding-top: 16px !important;
+}
+
+/* [O Spoiler Image] */
+
+.postarea tr:nth-of-type(3) td:not(.postblock) {
 font-size: 0 !important;
-color: transparent !important;
+color: transparent;
 }
 
 .postarea tr:nth-of-type(3) label {
 font-size: 8pt;
 position: absolute;
-bottom: 0;
+bottom: 2px;
 left: 5px;
-line-height: 24px;
+line-height: 25px;
 text-transform: lowercase;
 letter-spacing: -5px;
-color: transparent;
 -webkit-transition-property: color, letter-spacing;
 -webkit-transition: .5s ease-in-out;
 -moz-transition-property: color, letter-spacing;
@@ -314,31 +448,39 @@ letter-spacing: 0;
 .postarea input[type="checkbox"] {
 -moz-appearance: none;
 border: 1px solid #bbb !important;
-margin: 0;
+border-radius: 3px !important;
+margin: 0 3px 0 0;
 vertical-align: middle;
 }
 
-#com_submit:hover {
-box-shadow: 0 0 2px #bbb;
-}
-
-#com_submit:active {
-background-image: -webkit-linear-gradient(#ccc,#eee);
-background-image: -moz-linear-gradient(#ccc,#eee);
-}
+/* okay, so chrumb fucks us over with checkboxes */
+/* it removes the tick! so, either have a border/box-shadow/background-color change */
+/* seaweeedchan has content: 'img'; (would it be cross browser?) */
 
 /* images with the borders */
+
+img:-moz-broken {
+background: black;
+}
+
 img[md5] {
 border: 4px solid #fafafa !important;
 border-radius: 4px;
-outline: 1px solid #bbb;
--webkit-outline-radius: 5px;
--moz-outline-radius: 5px;
+box-shadow: 0 0 0 1px #bbb, 0 0 0px rgba(0,0,0,.25);
 margin: 3px 7px 5px 3px !important;
+-moz-transition: box-shadow .2s;
+}
+
+img[md5]:hover {
+box-shadow: 0 0 0 1px #bbb, 0 0 5px rgba(0,0,0,.25);
 }
 
 .reply img, .replyhl img {
 margin-bottom: 0 !important;
+}
+
+.abbr, span.omittedposts {
+color: #222 !important;
 }
 
 .omittedposts {
@@ -510,6 +652,13 @@ color: #102073 !important;
 color: #669933 !important;
 }
 
+/* (user was warned/banned for this post) */
+blockquote > b[style="color:red;"] {
+background-color: rgba(255, 0, 0, 0.15);
+border-radius: 3px;
+padding: 2px 5px 3px;
+}
+
 /* moot and mods */
 .postername > span, .postertrip > span, .commentpostername > span {
 font-size: 12pt;
@@ -533,7 +682,11 @@ unicode-bidi: normal;
 }
 
 .filetitle, .replytitle {
-color: #102073 !important;
+color: #575757 !important;
+}
+
+.filetitle:not(:empty), .replytitle:not(:empty) {
+margin-left: 2px;
 }
 
 /*
@@ -629,8 +782,12 @@ text-shadow: none;
 }
 
 .spoiler .unkfunc {
-color: inherit !important;
+color: transparent !important;
 text-shadow: none;
+}
+
+.spoiler:hover .unkfunc {
+color: #669933 !important;
 }
 
 /* pages */
@@ -699,7 +856,7 @@ color: #777;
 background-color: #fafafa;
 position: fixed;
 right: -277px;
-bottom: 310px;
+bottom: 425px;
 opacity: .5;
 padding: 1px 0 0 5px !important;
 height: 25px;
@@ -748,21 +905,32 @@ margin-right: 3px;
 .stub {
 margin: 8px 0;
 clear: both;
-}
-
-.stub a {
-display: inline-block;
 padding: 5px;
-font: 10pt 'Helvetica', 'Arial', sans-serif;
-background-image: -webkit-linear-gradient(#eee, #ddd) !important;
-background-image: -moz-linear-gradient(#eee, #ddd) !important;
+background-image: -webkit-linear-gradient(#eee, #ddd);
+background-image: -moz-linear-gradient(#eee, #ddd);
 box-shadow: 0 0 1px #999;
 border-radius: 5px;
 }
 
-.stub a:hover {
-text-shadow: none;
+.stub a {
+display: block;
+}
+
+.op > a[href="javascript:;"]:first-of-type {
+padding: 2px;
+margin-right: 5px;
+background-image: -webkit-linear-gradient(#eee, #ddd);
+background-image: -moz-linear-gradient(#eee, #ddd);
+box-shadow: 0 0 1px #999;
+border-radius: 5px;
+}
+
+.stub:hover {
 box-shadow: 0 0 2px #999;
+}
+
+.stub:hover a {
+text-shadow: none
 }
 
 /* thread watcher */
@@ -796,18 +964,11 @@ text-decoration: none !important;
 /* stats */
 #stats {
 color: #222;
-position: fixed;
-top: 21px;
-bottom: auto !important;
 opacity: .5;
 padding: 5px;
 border-radius: 4px;
 background-color: #e7e7e7 !important;
 box-shadow: 0 0 10px rgba(0,0,0,.25);
-}
-
-#stats > .move {
-cursor: default !important;
 }
 
 #stats:hover #postcount::after {
@@ -859,6 +1020,7 @@ padding: 3px;
 border-top-left-radius: 3px;
 border-top-right-radius: 3px;
 box-shadow: 0 0 1px #999;
+z-index: 3;
 }
 
 #updater .move {
@@ -913,4 +1075,72 @@ margin: 1px;
 
 #updater input[value="Update Now"]:hover {
 box-shadow: 0 0 2px #bbb;
+}
+
+#imgControls input[type="checkbox"] {
+-moz-appearance: none;
+border: 1px solid #bbb !important;
+border-radius: 3px !important;
+margin: 0 4px 0 0;
+vertical-align: baseline;
+}
+
+#imgControls {
+background-image: -webkit-linear-gradient(#eee,#ddd);
+background-image: -moz-linear-gradient(#eee,#ddd);
+padding: 3px 2px 2px;
+border-top-left-radius: 3px;
+border-top-right-radius: 3px;
+box-shadow: 0 0 1px #999;
+position: fixed;
+bottom: 0;
+right: 75px;
+z-index: 2;
+}
+
+#imgControls:hover > #imageType {
+visibility: visible;
+width: auto;
+}
+
+#imgControls > #imageType {
+-moz-appearance: none;
+visibility: collapse;
+width: 1px;
+color: #777;
+background: none;
+border: 0;
+}
+
+#imageType > *:not(option) {
+visibility: collapse;
+}
+
+#imgControls > label {
+font-size: 0;
+}
+
+.op {
+position: relative;
+}
+
+.reportbutton {
+color: #2d2d2d !important;
+text-shadow: none !important;
+background-image: -webkit-linear-gradient(#eee,#ddd);
+background-image: -moz-linear-gradient(#eee,#ddd);
+padding: 2px 3px 3px;
+border-radius: 3px;
+box-shadow: 0 0 1px #999;
+position: absolute;
+top: 0;
+right: 0;
+-webkit-transition: box-shadow .2s;
+-moz-transition: box-shadow .2s;
+}
+
+.reportbutton:hover {
+box-shadow: 0 0 3px #999;
+}
+
 }
