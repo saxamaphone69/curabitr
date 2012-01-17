@@ -139,6 +139,16 @@ center a:hover {
 text-shadow: none;
 }
 
+/* for when moot and mods want to add youtube/sounds */
+/* so, with some CSS, you can at least see the button, to pause the music :) */
+embed {
+position: fixed;
+bottom: 0;
+left: 0;
+width: 30px !important;
+height: 25px !important;
+}
+
 /* main body */
 form[name="delform"] {
 width: 900px;
