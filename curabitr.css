@@ -170,7 +170,7 @@ margin: /*30px 75px 0 20px*/0 auto !important;
 */
 
 /* hiding shiz */
-input[type="file"] > input[type="button"],
+.postarea input[type="file"] > input[type="button"],
 .postarea small,
 .postarea .rules,
 .postarea span:empty,
@@ -234,7 +234,9 @@ right: 330px;
 margin: 0 !important;
 }
 
-.inputtext, input[type="file"] > input[type="text"], input[name="recaptcha_response_field"] {
+.postarea .inputtext,
+.postarea input[type="file"] > input[type="text"],
+.postarea input[name="recaptcha_response_field"] {
 -webkit-appearance: none;
 -moz-appearance: none;
 font-family: Helvetica, Arial, sans-serif !important;
@@ -252,24 +254,26 @@ vertical-align: baseline;
 position: relative !important;
 }
 
-input[type="file"] {
+.postarea input[type="file"] {
 -webkit-appearance: none;
 margin: 0;
 width: 244px !important;
 
 }
 
-input.inputtext, input[type="file"] > input[type="text"], input[name="recaptcha_response_field"] {
+.postarea input.inputtext,
+.postarea input[type="file"] > input[type="text"],
+.postarea input[name="recaptcha_response_field"] {
 height: auto !important;
 }
 
-textarea {
+.postarea textarea {
 min-height: 200px;
 resize: vertical;
 overflow: auto;
 }
 
-input[name="recaptcha_response_field"] {
+.postarea input[name="recaptcha_response_field"] {
 color: #222 !important;
 background-color: #fff;
 border-top-width: 0 !important;
@@ -279,16 +283,17 @@ border-top-right-radius: 0;
 
 /* silly chrumb~ */
 /* well, not really. it's just that an id overrides selectors such as above (in chrumb at least) */
-.recaptchatable #recaptcha_image {
+.postarea .recaptchatable #recaptcha_image {
 border: 0 !important;
 }
 
-.recaptchatable #recaptcha_response_field {
+.postarea .recaptchatable #recaptcha_response_field {
 border: 1px solid #bbb !important;
 border-top-width: 0 !important;
 }
 
-input[name="sub"], input[type="file"] > input[type="text"] {
+.postarea input[name="sub"],
+.postarea input[type="file"] > input[type="text"] {
 width: 244px !important;
 }
 
@@ -348,7 +353,7 @@ background-color: #cdcdcd;
 }
 
 
-input[type="file"]::-webkit-file-upload-button {
+.postarea input[type="file"]::-webkit-file-upload-button {
 -webkit-appearance: none;
 -moz-appearance: none;
 font-family: Helvetica, Arial, sans-serif;
@@ -374,7 +379,7 @@ position: relative;
 cursor: pointer;
 }
 
-input[type="submit"]:disabled {
+.postarea input[type="submit"]:disabled {
 cursor: default;
 text-shadow: none;
 background-image: none;
@@ -386,31 +391,31 @@ border-spacing: 0;
 border-collapse: collapse;
 }
 
-#recaptcha_table tr[height="73"] td[style] a:not(:first-of-type),
-#recaptcha_table tr[height="73"] td:last-of-type,
-#recaptcha_table tr:last-of-type td:not(:first-of-type) {
+.postarea #recaptcha_table tr[height="73"] td[style] a:not(:first-of-type),
+.postarea #recaptcha_table tr[height="73"] td:last-of-type,
+.postarea #recaptcha_table tr:last-of-type td:not(:first-of-type) {
 display: none;
 }
 
-#recaptcha_widget_div {
+.postarea #recaptcha_widget_div {
 width: 300px !important;
 position: relative;
 }
 
-#recaptcha_table tr[height] {
+.postarea #recaptcha_table tr[height] {
 height: auto !important;
 }
 
-#recaptcha_table *:not(input):not(img) {
+.postarea #recaptcha_table *:not(input):not(img) {
 padding: 0 !important;
 }
 
-#recaptcha_image {
+.postarea #recaptcha_image {
 border: 0 !important;
 position: relative !important;
 }
 
-#recaptcha_image > img {
+.postarea #recaptcha_image > img {
 width: 298px !important;
 border: 1px solid #bbb !important;
 border-bottom: 0 !important;
@@ -418,7 +423,7 @@ border-top-left-radius: 3px;
 border-top-right-radius: 3px;
 }
 
-#recaptcha_reload {
+.postarea #recaptcha_reload {
 position: absolute !important;
 top: 0 !important;
 right: 0 !important;
@@ -999,22 +1004,6 @@ border-radius: 3px;
 .qphl {
 outline: 0 !important;
 box-shadow: 0 0 5px #999 !important;
-}
-
-
-#qr {
-background: rgba(235,235,235,.85) !important;
-padding: 5px !important;
-border-radius: 3px;
-opacity: .5;
-border: 0 !important;
-box-shadow: 0 0 4px 2px rgba(0,0,0,.15);
--webkit-transition: opacity .3s;
--moz-transition: opacity .3s;
-}
-
-#qr:hover {
-opacity: .9;
 }
 
 #updater {
