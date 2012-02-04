@@ -15,4 +15,6 @@ __At this point in time, [4chan x](http://mayhemydg.github.com/4chan-x/) must be
 
 ###Legality
 
-Do whatever the fudge you want, just acknowledge me.
+curabitr is released under the [Creative Commons license](http://creativecommons.org/licenses/by/3.0/).
+
+So, as long as you acknowledge me, do whatever you'd like!
