@@ -1,5 +1,9 @@
 #curabitr
 
+#Regarding new HTML/CSS
+
+Yes, I am aware. I'll update the style so it is, at the very least, usable. I've sorta stopped bothering with this since I never really got feedback for it.
+
 __curabitr__ is a userstyle for [4chan](http://www.4chan.org), created by Saxamaphone !3.saxN0DHY. I also created [3 Shades of 4chan](http://userstyles.org/styles/23586/3-shades-of-4chan) but I haven't updated that in *forever*.
 
 ##Install

@@ -1,6 +1,10 @@
 #curabitr
 ##To-Do List:
 
+* well since new html/css is out, i guess i should at least just update this style, right?
+
+***
+
 * quick reply (wait for redesign)
 * /f/, /rs/ and other sub-domains
 * implication styling (still not happy with this)
