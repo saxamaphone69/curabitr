@@ -1,5 +1,9 @@
 #curabitr
 
+#the default 4chan stylesheets need to be blocked via adblock.
+
+#also, you kinda need my 4chan-s userscript but its not exactly ready for release (otherwise you're nav will look like shit)
+
 #Regarding new HTML/CSS
 
 Yes, I am aware. I'll update the style so it is, at the very least, usable. I've sorta stopped bothering with this since I never really got feedback for it.
