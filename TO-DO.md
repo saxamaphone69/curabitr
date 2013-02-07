@@ -1,5 +1,10 @@
-#curabitr
-##To-Do List:
+#new curabitr to-do list:
+
+* catalogue support
+* data uri icons
+* comments!
+
+#old curabitr to-do list:
 
 * well since new html/css is out, i guess i should at least just update this style, right?
 
