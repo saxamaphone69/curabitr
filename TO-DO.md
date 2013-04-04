@@ -12,3 +12,5 @@
 * style 4chan X settings window
 * unify style in terms of colours and spacing amounts
 * dark as my souls version
+* i'm using those batch icons, what license are they under
+* clean up read-me, add screenshots
