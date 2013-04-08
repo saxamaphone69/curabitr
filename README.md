@@ -4,20 +4,20 @@ __curabitr__ is a userstyle for [4chan](http://www.4chan.org), created by Saxama
 
 ##Install
 
-For __curabitr__ to work as intended, you need to block the default 4chan stylesheets. This method is what I use:
+For __curabitr__ to work as intended, you need to block the default 4chan stylesheets. This is the method I use:
 
 Through Adblock Plus, add this custom filter:
 
-`*//static.4chan.org/image/title/*`
-`*//static.4chan.org/css/*`
+```
+*//static.4chan.org/image/title/*
+*//static.4chan.org/css/*
+```
 
-Now you're saving yourself page requests and precious downloads!
-
-You also need the latest version of 4chan X (at the time of writing, version 3) for this userstyle to function. Might not work with all settings.
+You will also need the latest version of [4chan X](https://4chan-x.just-believe.in/) for this userstyle to function as intended. Might not work with all settings.
 
 To install __curabitr__ for 4chan, you'll need the [Stylish](http://userstyles.org/stylish) add-on/extension for either Firefox or Chrome.
 
-__curabitr__ will only be hosted here and will no longer be on userstyles.org.
+__curabitr__ will be hosted here only and will no longer be on userstyles.org.
 
 ##Notes
 
