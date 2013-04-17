@@ -11,6 +11,7 @@ Through Adblock Plus, add this custom filter:
 ```
 *//static.4chan.org/image/title/*
 *//static.4chan.org/css/*
+*//static.4chan.org/js/prettify/prettify.css
 ```
 
 You will also need the latest version of [4chan X](https://4chan-x.just-believe.in/) for this userstyle to function as intended. Might not work with all settings.
