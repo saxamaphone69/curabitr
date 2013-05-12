@@ -1,7 +1,7 @@
 /*\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\
 
   curabtir - 
-    an aesthetically pleasing 4chan userstyle
+    An aesthetically pleasing 4chan userstyle
 
   created by - 
     Johnny Karanikolas a.k.a.
@@ -13,94 +13,32 @@
   information, bug reports and what have you - 
     https://github.com/saxamaphone69/curabitr
 
-  table of contents - 
-    hiding and removal.................α
-    general reset......................β
-    navigation.........................γ
-    postarea...........................δ
-    posts..............................ε
-    pages and anything else............ζ
-    4chan X............................η
-    media queries......................θ
-
   shout outs - 
-    http://mayhemydg.github.com/4chan-x/
+    https://4chan-x.just-believe.in/
     the prefered version of 4chan X, maintained
     by !MayhemxaEo
         
     seaweed, zixaphir, kweeb, ahoka, anesif,
     joe, hdni and aeosynth also deserve a mention
     for being awesome
-
-  to do - 
-    . settings window and settings in header
-    . qr, make it look like hdni
-    . add 'mascot' support
-    . alternative to board select?
-    . /f/, /i/, /rs/, /p/ (and whatever odd boards)
-    . media queries?
-    . nitpicking
-        
-  changelog - 
-    . added icons for menu and show/reply buttons
     
 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\*/
-
+/*@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700|Open+Sans:300,400,600,700,800);*/
+@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:400,700);
 @-moz-document domain("boards.4chan.org") {
-
-/*
- * @supports won't work in chrome, but luckily it supports display: flex with prefix,
- * so really it's just to get firefox users to upgrade
- */
-
-@supports ( not (display: flex) ) {
-  body::before {
-    content: '4chan X v3 requires Firefox >20, and so does curabitr. Follow the instructions on the 4chan X install page to get the full benefits of this userstyle.';
-    text-align: center;
-    display: block;
-    margin: 3em auto 0;
-    border-radius: 2px;
-    width: 500px;
-    max-width: 100%;
-    position: relative;
-    color: #fafafa;
-    font-weight: 600;
-    padding: 1em;
-    text-shadow: 0 1px 2px rgba(0, 0, 0, .5);
-    box-shadow: 0 1px 2px rgba(0, 0, 0, .15);
-    background-color: hsla(0, 100%, 38%, .9);
-  }
-}
-
-/*==============================
-  α - hiding and removal
-==============================*/
-
-/*
- * in order: mobile elements, stuff in the board select,
- * board title, posting mode, 4chan X unread line,
- * ads,
- * old posting form (use the QR),
- * checkboxes, delete form (use Menus), style changer,
- * next and previous page buttons, catalog link,
- * bottom navigation and copyright text
- */
-
-.mobile:not(#boardNavMobile):not(#globalToggle), .boardSelect strong, .pageJump, #id_css, .navLinks,
+/*#parental-mode { position: fixed; height: 10px; width: 10px; background: red; z-index: 100; top: 0; left: 0; }
+img { opacity: 1; transition: all 1s; }
+.parental-mode img { opacity: .5 }*/
+.mobile, .navLinks, .navLinks + div,
 .boardBanner, .postingMode, hr:not(#unread-line),
 .center, .topad, .middlead, .bottomad,
-.navLinks + div, form[name=post],
-.post input, .deleteform, .stylechanger,
+.postInfo > input[value=delete], .deleteform, .stylechanger,
 .pagelist .prev, .pagelist .next, .pages.cataloglink,
-#boardNavDesktopFoot, #absbot {
+#absbot {
   display: none !important;
 }
 
-/*==============================
-  β - general reset
-==============================*/
-
-*, *::after, *::before {
+*, ::after, ::before {
   -moz-box-sizing: border-box;
        box-sizing: border-box;
 }
@@ -115,20 +53,18 @@
   text-shadow: none;
 }
 
-a:focus {
-    outline: 0 !important;
+:focus {
+  outline: 0 !important;
 }
 
 html, button, input, select, textarea {
-  font-family: 'Open Sans', sans-serif !important;
-  font-size: 1em !important;
-  font-weight: 300;
+  font-family: Source Sans Pro, Open Sans, sans-serif;
+  font-size: 1em;
   color: #3d3d3d;
 }
 
-b, strong, .current, .name, .subject, h1, h2, h3, h4, h5, h6 {
-  font-family: 'Open Sans', sans-serif;
-  font-weight: 600;
+b, strong, .current, .name, .subject {
+  font-weight: 700;
 }
 
 html {
@@ -148,48 +84,16 @@ a {
   text-decoration: none !important;
 }
 
+img {
+  vertical-align: middle;
+}
+
 blockquote {
   margin: 0;
 }
-
-/*==============================
-  γ - navigation
-==============================*/
 /*
-#header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: #fafafa;
-  padding: .25em 0 .25em 2em;
-  border-bottom: 1px solid #ababab;
-  color: #ababab;
-  z-index: 10;
-  cursor: default;
-  -moz-user-select: none;
-  user-select: none;
-}
-
-#header a {
-  color: #696969 !important;
-  transition: all .2s;
-}
-
-#header a:hover {
-  color: #3d3d3d !important;
-}
-*/
-#header {
- height: 5px;
- }
 .globalMessage, .warning {
   color: #E61616 !important;
-}
-
-#globalToggle {
-  font-size: 0;
-  color: transparent;
 }
 
 .globalMessage {
@@ -203,18 +107,20 @@ blockquote {
   z-index: 3;
 }
 
+.show-announcement:hover + .globalMessage,
+.globalMessage:hover {
+  display: block !important;
+}
+
 .globalMessage * {
-  font-size: 14px; /* yeah i know, px, gross. but have to */
+  font-size: 14px;
   font-weight: 400;
   margin: 0;
 }
 
-.globalMessage.hideMobile {
-  display: none;
-}
-
-#globalToggle {
-  display: block !important;
+a.show-announcement,
+a.hide-announcement {
+  display: block;
   height: 16px;
   width: 16px;
   position: fixed;
@@ -222,52 +128,37 @@ blockquote {
   opacity: .5;
   z-index: 11;
   transition: all .2s ease-in-out;
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjUxRTA1QTMzQTI4MTFFMjlCODZGQzk3RDhCRTBDRDIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjUxRTA1QTQzQTI4MTFFMjlCODZGQzk3RDhCRTBDRDIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCNTFFMDVBMTNBMjgxMUUyOUI4NkZDOTdEOEJFMENEMiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCNTFFMDVBMjNBMjgxMUUyOUI4NkZDOTdEOEJFMENEMiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvTyK+sAAABgSURBVHjaYmBgYNgLxWQBRiD+j4WNSy0GYGKgELCQoBab6w6S4gVswBlm8n8kW4jFBxjQNJFqgBOlgfiXUhfsxZYOiA19eCBSasA+FiJTK05AcUoceANAYbCDEgMAAgwAIRs25D9S0YUAAAAASUVORK5CYII=');
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyJpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBNYWNpbnRvc2giIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6QjUxRTA1QTMzQTI4MTFFMjlCODZGQzk3RDhCRTBDRDIiIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6QjUxRTA1QTQzQTI4MTFFMjlCODZGQzk3RDhCRTBDRDIiPiA8eG1wTU06RGVyaXZlZEZyb20gc3RSZWY6aW5zdGFuY2VJRD0ieG1wLmlpZDpCNTFFMDVBMTNBMjgxMUUyOUI4NkZDOTdEOEJFMENEMiIgc3RSZWY6ZG9jdW1lbnRJRD0ieG1wLmRpZDpCNTFFMDVBMjNBMjgxMUUyOUI4NkZDOTdEOEJFMENEMiIvPiA8L3JkZjpEZXNjcmlwdGlvbj4gPC9yZGY6UkRGPiA8L3g6eG1wbWV0YT4gPD94cGFja2V0IGVuZD0iciI/PvTyK+sAAABgSURBVHjaYmBgYNgLxWQBRiD+j4WNSy0GYGKgELCQoBab6w6S4gVswBlm8n8kW4jFBxjQNJFqgBOlgfiXUhfsxZYOiA19eCBSasA+FiJTK05AcUoceANAYbCDEgMAAgwAIRs25D9S0YUAAAAASUVORK5CYII=');
+  background-repeat: no-repeat;
   right: 149px;
+  float: none !important;
 }
 
-#globalToggle:hover, #globalToggle.shown {
+a.show-announcement:hover,
+a.hide-announcement {
   opacity: .9;
 }
 
-.boardSelect::before {
-  content: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpERjQ5QUU2RjNEMjA2ODExODhDNkNCNjMxRDc2RjgxMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpCMUY2NzU3NzJGNjkxMUUyOERFOTgyRDM3RTA1OTdGOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpCMUY2NzU3NjJGNjkxMUUyOERFOTgyRDM3RTA1OTdGOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDQ4MDExNzQwNzIwNjgxMThGNjJEQ0UzOTVCQjBGNUYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6REY0OUFFNkYzRDIwNjgxMTg4QzZDQjYzMUQ3NkY4MTIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4NW4eIAAAAkElEQVR42mJgYGBgA+IWIH4CxP+JxE+gekB6GdpJ0IiOQXoZXkE5TgzEAyeonleMUAYIILMJAbhaFiwSJAF0A0hxAcMwcQETDvG9WOJ8LykGcGIRE8Lliv9Y/C4BxDeQ5G5AxbDq+48j8EAazkCxBD6LYUnZg4Sw84AlZUozUxcDNEv2AvFzEjQ+h+phAwgwAErMWMKE3eSkAAAAAElFTkSuQmCC');
+a.show-announcement > span,
+a.hide-announcement > span {
+  display: none;
+}
+
+a.show-announcement::before {
+  content: '';
   display: block;
-  position: fixed;
-  top: 7px;
-  right: 170px;
-  width: 16px;
-  height: 16px;
-  pointer-events: none;
-  z-index: 11;
-  opacity: .5;
-  cursor: pointer !important;
+  background: rgba(0,255,0,.5);
+  height: 25px;
+  width: 25px;
+  transform: rotate(45deg);
+  transform-origin: 100% 0%;
+  top: 25px;
+  left: 0px;
+  position: relative;
 }
-
-.boardSelect:hover::before {
-  opacity: .9;
-}
-
-.boardSelect #boardSelectMobile {
-  opacity: 0;
-  position: fixed;
-  top: 7px;
-  right: 170px;
-  height: 16px;
-  width: 16px;
-  z-index: 11;
-  -moz-appearance: none;
-  border: 0;
-  font-size: 12px !important;
-  color: #3d3d3d !important;
-  background: #fafafa;
-}
-
-#boardSelectMobile option {
-  -moz-appearance: none;
-  width: 150px;
-}
-
+*//*
+.show-board-list-button, .hide-board-list-button {
+  float: left; }*/
 /* mascot! put id_css to use */
 
 /* possibly use :before and :after, and pointer events...
@@ -487,6 +378,11 @@ blockquote {
   content: '.';
 }
 
+.backlink:nth-child(10n-1)::before {
+  content: '';
+  display: block;
+}
+
 .postNum > span {
   font-size: 0;
   color: transparent;
@@ -577,30 +473,48 @@ s:hover::selection {
 }
 
 .prettyprint {
+  font-family: Source Code Pro, Inconsolata, monospace;
+  color: #fafafa;
   background-color: #3d3d3d;
-  padding: 5px !important;
-  border: 1px solid #2d2d2d !important;
+  padding: .5em;
+  border: 1px solid #2d2d2d;
   margin: 0;
   white-space: pre-wrap;
   display: inline-block;
 }
+/*
+.prettyprint .str { color: #edd400; }
+.prettyprint .kwd { color: #fafafa; font-weight: bold; }
+.prettyprint .com { color: #888a85; }
+.prettyprint .typ { color: #8ae234; font-weight: bold; }
+.prettyprint .lit { color: #edd400; }
+.prettyprint .pun { color: #d3d7cf; }
+.prettyprint .pln { color: #d3d7cf; }
+.prettyprint .tag { color: #729fcf; }
+.prettyprint .atn { color: #8ae234; font-weight: bold; }
+.prettyprint .atv { color: #edd400; }
+.prettyprint .dec { color: #ce5c00; }
+*/
 
-.prettyprint span {
-    font-family: monospace !important;
-    color: #fafafa !important;
-}
+/* 
+  tomorrow night eighties prettify css
+  from: http://jmblog.github.io/color-themes-for-google-code-prettify/
+*/
 
-.prettyprint .str { color: #edd400 !important; } /* string - butter2 */
-.prettyprint .kwd { color: #fff !important; font-weight: bold !important; } /* keyword - white */
-.prettyprint .com { color: #888a85 !important; } /* comment - aluminum4 */
-.prettyprint .typ { color: #8ae234 !important; font-weight: bold !important; } /* type - chameleon1 */
-.prettyprint .lit { color: #edd400 !important; } /* literal - butter2 */
-.prettyprint .pun { color: #d3d7cf !important; } /* punctuation - aluminium2 */
-.prettyprint .pln { color: #d3d7cf !important; } /* plaintext - aluminium2 */
-.prettyprint .tag { color: #729fcf !important; } /* html/xml tag - skyblue1 */
-.prettyprint .atn { color: #8ae234 !important; font-weight: bold !important; } /* html/xml attribute name - chameleon1 */
-.prettyprint .atv { color: #edd400 !important; } /* html/xml attribute value - butter2 */
-.prettyprint .dec { color: #ce5c00 !important; } /* decimal - orange3 */
+.prettyprint .str {color: #9c9}
+.prettyprint .kwd {color: #c9c}
+.prettyprint .com {color: #999}
+.prettyprint .typ {color: #69c}
+.prettyprint .lit {color: #f99157}
+.prettyprint .pun {color: #ccc}
+.prettyprint .opn {color: #ccc}
+.prettyprint .clo {color: #ccc}
+.prettyprint .tag {color: #f2777a}
+.prettyprint .atn {color: #f99157}
+.prettyprint .atv {color: #6cc}
+.prettyprint .dec {color: #f99157}
+.prettyprint .var {color: #f2777a}
+.prettyprint .fun {color: #69c}
 
 #qp {
   background: rgba(250, 250, 250, .85) !important;
@@ -747,6 +661,8 @@ s:hover::selection {
   padding: 0 !important;
 }
 
+/* .deleted-post > .post */
+
 #watcher {
   position: fixed !important;
   top: -250px !important;
@@ -793,6 +709,38 @@ s:hover::selection {
 
 #watcher div a:first-child { color: #E61616 !important; }
 
+/*#watcher::after {
+  content: '';
+  display: block;
+  background: rgba(0,0,255,.5);
+  height: 25px;
+  width: 25px;
+  transform: rotate(45deg);
+  transform-origin: 100% 0%;
+  top: 32px;
+  right: 97px;
+  position: fixed;
+}
+
+#qr::after {
+  content: '';
+  display: block;
+  background: rgba(255,0,0,.5);
+  height: 32px;
+  width: 32px;
+  transform: rotate(45deg);
+  transform-origin: 50% 50%;
+  top: 15px;
+  right: 120px;
+  position: fixed;
+}*/
+
+#watcher:hover { z-index: 99 !important; }
+
+#qr:hover { z-index: 99 !important; }
+
+a.show-announcement:hover { z-index: 99 !important; }
+
 .postContainer .favicon[src] {
   position: absolute;
   top: 1em;
@@ -832,7 +780,14 @@ s:hover::selection {
 }
 
 #qr {
-  top: -300px !important;
+  top: 32px !important;
+  right: 128px !important;
+  left: auto !important;
+  /*transition: top .2s;*/
+}
+
+#qr:not(.has-focus):not(:hover) {
+  top: -500px !important;
   left: auto !important;
   right: 128px !important;
   bottom: auto !important;
@@ -840,14 +795,104 @@ s:hover::selection {
   padding: .25em !important;
 }
 
-#qr:hover {
-  top: 30px !important;
+#qr {
+  min-width: 500px !important;
+  padding: .25em !important;
+  border: 1px solid #ababab !important;
+}
+/*
+#qr:not(.qr-focused):not(:hover) {
+  background: red !important;
 }
 
-#qr > div { display: none !important; }
+#qr {
+  background: green !important;
+}
+*/
+#qr > div {
+  display: none !important;
+}
 
-#qr .field {
-  background-color: #fafafa;
+#dump-button {
+  -moz-appearance: none;
+  font: inherit;
+  color: #fafafa;
+  background: #ababab !important;
+  padding: .25em !important;
+  border: 0 !important;
+  transition: background-color .2s;
+}
+
+.persona .field {
+  margin-left: .25em !important;
+}
+
+.field[name=name]:not(:focus) {
+  color: transparent !important;
+}
+
+#dump-button:hover {
+  background: #999 !important;
+}
+
+.field {
+  -moz-appearance: none;
+  font-family: inherit !important;
+  font-size: inherit !important;
+  color: inherit !important;
+  line-height: inherit !important;
+  background-color: #fafafa !important;
+  padding: .25em !important;
+  border: 1px solid #ababab !important;
+}
+
+.field:focus {
+  border: 1px solid #999 !important;
+}
+
+.field::-moz-placeholder, .field:not(:focus) {
+  color: #ababab !important;
+}
+
+#qr .textarea {
+  margin: .25em 0;
+}
+
+#qr textarea {
+  min-height: 200px !important;
+  background: red 
+  border: 1px solid green;
+}
+
+#qr .captcha-img {
+  outline: 0 !important;
+  padding: .25em 0;
+  border: 1px solid #ababab;
+  border-bottom: 0;
+}
+
+#qr .captcha-img > img {
+  margin: auto;
+}
+
+#qr .captcha-input {
+  margin-bottom: .25em !important;
+}
+
+#file-n-submit input {
+  -moz-appearance: none;
+  font: inherit;
+  color: #fafafa;
+  text-transform: lowercase;
+  background-color: #ababab;
+  padding: .25em;
+  border: 0;
+  cursor: pointer;
+  transition: background-color .2s;
+}
+
+#file-n-submit input:hover {
+  background-color: #999;
 }
 
 #shortcuts { display: none; }
@@ -969,6 +1014,25 @@ span.menu-button, a.menu-button {
   min-width: 100%;
 }
 
+.unscroll {
+  overflow: visible !important;
+}
+
+#fourchanx-settings {
+  padding: .5em !important;
+  height: 720px !important;
+  width: 1280px !important;
+}
+
+#fourchanx-settings > nav {
+  color: #ababab !important;
+  padding: 0 !important;
+}
+
+.section-container > section {
+  margin-top: .5em;
+}
+
 /* i already clearfix posts. rare bug where when on
  the index, if the post under op has an image and
  is expanded, it will separate from the .summary */
@@ -977,8 +1041,8 @@ span.menu-button, a.menu-button {
   clear: none !important;
 }
 
-.postingMode ~ #delform .board .thread blockquote {
-  margin-bottom: 0;
+.postingMode ~ #delform .board .thread .op blockquote {
+  margin-bottom: .5em;
 }
 
 /*.board > .thread:first-child:nth-last-child(3) {
@@ -994,6 +1058,14 @@ span.menu-button, a.menu-button {
   to { background: red; }
 }
 */
+/*
+#qp { max-width: 100vw; max-height: 100vh; overflow: scroll; !OR! transform: scale(.75); }
+*/
+@media (max-width: 960px) {
+html {font-size:.75em;}
+.thread .postContainer {padding:.5em .75em 1em;}
+}
+
 }
 
 @-moz-document regexp("https?://boards\\.4chan\\.org\\/(.|..|...)\\/catalog") {
