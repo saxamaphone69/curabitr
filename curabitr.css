@@ -19,28 +19,32 @@
     by !MayhemxaEo
         
     seaweed, zixaphir, kweeb, ahoka, anesif,
-    joe, hdni and aeosynth also deserve a mention
-    for being awesome
+    joe, hdni, aeosynth and any other members
+    of the userstyle brigade also deserve a
+    mention for being awesome
     
 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\*/
-/*@import url(http://fonts.googleapis.com/css?family=Inconsolata:400,700|Open+Sans:300,400,600,700,800);*/
-@import url(http://fonts.googleapis.com/css?family=Source+Code+Pro|Source+Sans+Pro:400,700);
+
 @-moz-document domain("boards.4chan.org") {
-/*#parental-mode { position: fixed; height: 10px; width: 10px; background: red; z-index: 100; top: 0; left: 0; }
-img { opacity: 1; transition: all 1s; }
-.parental-mode img { opacity: .5 }*/
-.mobile, .navLinks, .navLinks + div,
-.boardBanner, .postingMode, hr:not(#unread-line),
-.center, .topad, .middlead, .bottomad,
-.postInfo > input[value=delete], .deleteform, .stylechanger,
-.pagelist .prev, .pagelist .next, .pages.cataloglink,
-#absbot {
-  display: none !important;
+
+/*
+  bunch of crap that isn't needed, including:
+  mobile stuff, the banner, horizontal rules,
+  ad placeholders, delete forms and style changers,
+  some page stuff, checkboxes and copyright text
+*/
+
+.mobile, .boardBanner, .postingMode,
+hr:not(#unread-line), .center, .topad, .middlead, .bottomad,
+.navLinks, .navLinks + div, .deleteform, .stylechanger,
+.pagelist .prev, .pagelist .next,
+.absBotText, .postInfo > input[value=delete] {
+  display: none;
 }
 
 *, ::after, ::before {
   -moz-box-sizing: border-box;
-       box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 ::-moz-selection {
@@ -53,30 +57,56 @@ img { opacity: 1; transition: all 1s; }
   text-shadow: none;
 }
 
+/*
+  this might be useful if i used the keyboard
+*/
+
 :focus {
   outline: 0 !important;
 }
 
-html, button, input, select, textarea {
-  font-family: Source Sans Pro, Open Sans, sans-serif;
-  font-size: 1em;
-  color: #3d3d3d;
-}
-
-b, strong, .current, .name, .subject {
-  font-weight: 700;
-}
-
 html {
-  background-color: #fafafa;
+  font: 1em/1.4 open sans, sans-serif;
+  color: #3d3d3d;
+  background: #fafafa;
   overflow-y: scroll;
   word-wrap: break-word;
   overflow-wrap: break-word;
 }
 
+.field, textarea, input[type] {
+  -moz-appearance: none;
+  font-size: inherit !important;
+  line-height: inherit !important;
+  color: inherit !important;
+  background: #fafafa !important;
+  border: 1px solid #ababab !important;
+}
+
+input[type=button], input[type=submit] {
+  cursor: pointer;
+}
+
+input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0 !important;
+  padding: 0 !important;
+}
+
+textarea {
+  vertical-align: top;
+}
+
 body {
-  line-height: 1.4;
-  margin: 0 0 2em;
+  margin: 2em 0;
+}
+
+img {
+  vertical-align: middle;
 }
 
 a {
@@ -84,33 +114,269 @@ a {
   text-decoration: none !important;
 }
 
-img {
-  vertical-align: middle;
+b, strong, .name, .subject, .current {
+  font-weight: 700;
 }
 
-blockquote {
+blockquote { margin: .5em 0 0 .5em }
+
+/*
+  this is to compensate for .summary on the index
+*/
+
+.op blockquote { margin-bottom: 1.5em }
+
+.in-thread .op blockquote { margin-bottom: .5em }
+
+pre, .postertrip {
+  font-family: Inconsolata, monospace;
+  font-size: 100%;
+}
+
+pre {
+  color: #fafafa;
+  background-color: #3d3d3d;
+  padding: .5em;
+  border: 1px solid #2d2d2d;
+  margin: 0;
+  white-space: pre-wrap;
+  display: inline-block;
+}
+
+/*
+  tomorrow night eighties prettify css from:
+  http://jmblog.github.io/color-themes-for-google-code-prettify/
+*/
+
+.prettyprint .str { color: #9c9; }
+.prettyprint .com { color: #999; }
+.prettyprint .atv { color: #6cc; }
+.prettyprint .typ,
+.prettyprint .fun { color: #69c; }
+.prettyprint .kwd { color: #c9c; }
+.prettyprint .lit,
+.prettyprint .atn,
+.prettyprint .dec { color: #f99157; }
+.prettyprint .pun,
+.prettyprint .opn,
+.prettyprint .clo { color: #ccc; }
+.prettyprint .tag,
+.prettyprint .var { color: #f2777a; }
+
+.board::after,
+.thread::after,
+.postContainer::after,
+.post::after {
+  content: '';
+  display: table;
+  clear: both;
+}
+
+.board,
+.board .thread,
+.postContainer {
+  position: relative;
+}
+
+.thread, .stub {
+  margin: 1em 0;
+}
+
+.thread .stub {
   margin: 0;
 }
-/*
-.globalMessage, .warning {
-  color: #E61616 !important;
+
+.stub {
+  padding: 1em 1.5em;
+}
+
+.thread > .stub {
+  border-top: 1px solid #ababab;
+  border-bottom: 1px solid #ababab;
+}
+
+.thread .postContainer {
+  border-top: 1px solid #ababab;
+  background-color: #fafafa;
+}
+
+.thread .postContainer:last-of-type { border-bottom: 1px solid #ababab }
+
+.thread .postContainer:nth-of-type(even) { background-color: #f5f5f5 }
+
+.post {
+  padding: 1em 1.5em;
+  transition: all .2s;
+}
+
+.fileThumb {
+  float: left;
+  margin: .5em .5em .5em 0;
+  opacity: 1;
+  transition: opacity .2s ease-in-out;
+}
+
+.fileInfo {
+  font-size: .9em;
+}
+
+.dateTime, .abbr {
+  color: #ababab;
+}
+
+.quote {
+  color: #008542;
+}
+
+.file {
+  color: #ababab;
+  margin-top: .1em;
+}
+
+.file > .fileInfo > a {
+  visibility: collapse;
+  opacity: 0;
+  transition: all .2s;
+}
+
+.file:hover > .fileInfo > a {
+  visibility: visible;
+  opacity: 1;
+  transition: all 1s;
+}
+
+.summary {
+  font-size: 0;
+  float: right;
+  background-color: #fafafa;
+  border: 1px solid #ababab;
+  border-bottom: 0;
+  position: relative;
+  right: 1rem;
+  padding: .25rem;
+  bottom: 25px;
+}
+
+.summary span {
+  font-size: .75rem;
+}
+
+.summary span:not(:only-child)::after {
+  content: ' / ';
+}
+
+.summary span:not(:only-child):last-child::after {
+  content: '';
+}
+
+.container:not(:empty) {
+  font-size: .75em;
+  margin-left: 1rem;
+  opacity: .75;
+  color: #999;
+  display: table;
+}
+
+/* gross, i know... */
+
+.op .container:not(:empty) {
+  margin-left: 0;
+  right: -16px;
+  position: relative;
+}
+
+.container:not(:empty)::before {
+  content: 'quoted by: ';
+}
+
+/* dat selector */
+
+.container .backlink:not(:only-child):not(:nth-last-child(2)):not(:last-child)::after {
+  content: ', ';
+  color: #999 !important;
+}
+
+.container .backlink:last-child:not(:only-child)::before {
+  content: ' and ';
+  color: #999 !important;
+}
+
+.container:not(:empty)::after {
+  content: '.';
+}
+
+.subject:not(:empty)::after {
+  content: ' by ';
+  font-weight: 400;
+}
+
+.postNum > a:first-child {
+  font-size: 0;
+  color: transparent;
+}
+
+.postNum > a:first-child::before {
+  content: '#';
+  font-size: 1rem;
+}
+
+.qphl {
+  outline: 0 !important;
+  box-shadow: inset 0 0 10px rgba(242,175,32,.75);
+}
+
+.moot .post {
+  box-shadow: inset 0 0 20px rgba(255, 100, 100, .25);
+}
+
+.mod .post {
+  box-shadow: inset 0 0 20px rgba(145, 13, 188, .25);
+}
+
+.interest .post {
+  box-shadow: inset 0 0 10px rgba(30,144,255,.75);
+}
+
+.closedIcon {
+  height: 16px;
+  padding-left: 16px;
+  width: 0;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpERjQ5QUU2RjNEMjA2ODExODhDNkNCNjMxRDc2RjgxMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowMDIxODUzMTJGNkIxMUUyOERFOTgyRDM3RTA1OTdGOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowMDIxODUzMDJGNkIxMUUyOERFOTgyRDM3RTA1OTdGOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDg4MDExNzQwNzIwNjgxMThGNjJEQ0UzOTVCQjBGNUYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6REY0OUFFNkYzRDIwNjgxMTg4QzZDQjYzMUQ3NkY4MTIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4viBW/AAAAkklEQVR42mL4//8/AxZgD8QbgfgJFG+EiqEAsF4sBlSA5HDgCkIGgGz5A8Q/gbgaiKWhuBoqBpKzwWfAYWw2obnsAD4DPkAViWIxQBQq9wGfATC/4gIo8iC9TAwUAmQD9mKxCR1jqGUEOYORkZGBgNOxAbBeFmwSBDT+x+UFisNgiBrAQiiQSHHBDhL0wdUCBBgAfeJSbCc8/4YAAAAASUVORK5CYII=');
+}
+
+.stickyIcon {
+  height: 16px;
+  padding-left: 16px;
+  width: 0;
+  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpERjQ5QUU2RjNEMjA2ODExODhDNkNCNjMxRDc2RjgxMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFNTlFQTU0QTJGNjcxMUUyOERFOTgyRDM3RTA1OTdGOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFNTlFQTU0OTJGNjcxMUUyOERFOTgyRDM3RTA1OTdGOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RkI3RjExNzQwNzIwNjgxMTg3MUY4Q0I3NzJFRTk3MDYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6REY0OUFFNkYzRDIwNjgxMTg4QzZDQjYzMUQ3NkY4MTIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz528nlSAAAA4UlEQVR42mL4//8/AxpgA+IcID4AxD+h+ABUjA1dMQOaAdJAfB4kjAOfh6rBagDI9EtQhU+AOByqWBrKfgKVu4TiEiQDcqAKbgCxEAMmAIldharJwWbAYahkCANuEAhVcxibAT+hkvx4DOCBqvkJE2BCkvzOQDz4js2AfVDaCY9GVzS1KF5wgjrvKhGB6IQrHRxGikZQYEpAcQhSNO7Cl5AMgPgPnoT0DYhV8BkAAo14DKgglJRhKfIYFs3HiMkLMADy93Mkzc+hYgzEGgAClki50RJnxOIxAATSoBgnAAgwAKP8c4OWyannAAAAAElFTkSuQmCC');
+}
+
+.inline {
+  border: 1px solid #ababab !important;
+  margin: .25em 0 !important;
+}
+
+.inline .postContainer {
+  border: 0 !important;
+}
+
+.inline .post {
+  padding: .5em !important;
 }
 
 .globalMessage {
   position: fixed;
-  background: #fafafa;
+  z-index: 3;
+  padding: .5em;
   border: 1px solid #ababab;
-  width: 500px;
+  background: rgba(250, 250, 250, .85);
+  max-width: 720px;
+  color: #e61616;
   top: 30px;
   right: 149px;
-  padding: .5em;
-  z-index: 3;
 }
 
-.show-announcement:hover + .globalMessage,
-.globalMessage:hover {
-  display: block !important;
-}
+/* px value cause h1s can fuck it up */
 
 .globalMessage * {
   font-size: 14px;
@@ -118,7 +384,8 @@ blockquote {
   margin: 0;
 }
 
-a.show-announcement,
+a.hide-announcement > span { display: none; }
+
 a.hide-announcement {
   display: block;
   height: 16px;
@@ -134,137 +401,92 @@ a.hide-announcement {
   float: none !important;
 }
 
-a.show-announcement:hover,
-a.hide-announcement {
+a.hide-announcement:hover {
   opacity: .9;
 }
 
-a.show-announcement > span,
-a.hide-announcement > span {
-  display: none;
+.dialog {
+  box-shadow: none !important;
 }
 
-a.show-announcement::before {
-  content: '';
-  display: block;
-  background: rgba(0,255,0,.5);
-  height: 25px;
-  width: 25px;
-  transform: rotate(45deg);
-  transform-origin: 100% 0%;
-  top: 25px;
-  left: 0px;
-  position: relative;
-}
-*//*
-.show-board-list-button, .hide-board-list-button {
-  float: left; }*/
-/* mascot! put id_css to use */
+/* [spoiler] */
 
-/* possibly use :before and :after, and pointer events...
- just so when the mascot gets hovered over it moves
- out of the way, but can still be clicked/seen through */
-/*
-#id_css {
-  display: block !important;
-  background: red;
-  height: 50px;
-  width: 50px;
+s {
+  text-decoration: none;
+  background-color: #3d3d3d;
+  transition: color .2s;
+}
+
+s::-moz-selection {
+  color: transparent;
+}
+
+s::selection {
+  color: transparent;
+}
+
+s:hover {
+  color: #fafafa;
+}
+
+s:hover::-moz-selection {
+  color: #3d3d3d;
+}
+
+s:hover::selection {
+  color: #3d3d3d;
+}
+
+s:not(:hover) > .quote { color: #3d3d3d; }
+
+.post.reply .file {
+  margin: 0 0 0 .5em;
+}
+
+.expanded-image {
+  clear: none !important;
+}
+
+#parental-mode {
   position: fixed;
-  z-index: 15;
-  right: 0;
-  bottom: 0;
+  top: 7px;
+  right: 16px;
+  z-index: 20;
+  height: 16px;
+  width: 16px;
+  opacity: .5;
+  cursor: pointer;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpERjQ5QUU2RjNEMjA2ODExODhDNkNCNjMxRDc2RjgxMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDoyMjA5NTk1ODJGNkQxMUUyOERFOTgyRDM3RTA1OTdGOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDoyMjA5NTk1NzJGNkQxMUUyOERFOTgyRDM3RTA1OTdGOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6OUE3MEI3MkIwQTIwNjgxMThGNjJEQ0UzOTVCQjBGNUYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6REY0OUFFNkYzRDIwNjgxMTg4QzZDQjYzMUQ3NkY4MTIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5HlOBxAAAAvklEQVR42mL4//8/AxZgD8QbgfgJFG+EiqEAsF4sBlSA5HDgCkIGgGz5A8Q/gbgaiKWhuBoqBpKzwWfAYWw2obnsAD4DPkAViWIxQBQq9wHZACY0RWxQ+hcWA/6i0WCAbsApKJ2MxYAEKH0BMyoQwBvqTFBglSKJl0LFQHIehKJxEVK0wdVC8Xxi0oE0kgYPKIbx5YgxgAFPQsLwPhMDdrCDSDGcLiAK4HMBCDxEcvolvKbQygUwV1zCpwAgwAD0WXv//AcjjwAAAABJRU5ErkJggg==');
 }
 
-#id_css:hover:before {
-  opacity: .3;
-}
-
-#id_css:before {
-  content: url('file:///E:/Websites/curabitr/ANIME.png');
+#dams {
   position: fixed;
-  display: block !important;
-  height: 500px;
-  width: 500px;
-  z-index: 15;
-  bottom: 0;
-  right: 0;
+  top: 7px;
+  right: 60px;
+  z-index: 20;
+  height: 16px;
+  width: 16px;
+  opacity: .5;
+  cursor: pointer;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpERjQ5QUU2RjNEMjA2ODExODhDNkNCNjMxRDc2RjgxMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpEMEIwM0Q1QTJGNEQxMUUyQUQ4QkZCMjk2N0MxRkVDQyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpEMEIwM0Q1OTJGNEQxMUUyQUQ4QkZCMjk2N0MxRkVDQyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6REVEMDUzMjM0QjIwNjgxMTg4QzZDQjYzMUQ3NkY4MTIiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6REY0OUFFNkYzRDIwNjgxMTg4QzZDQjYzMUQ3NkY4MTIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5THTyIAAAA5klEQVR42qRTQQrCMBAMFvKVglAoeA34DP/hyYNfEAJ5iScFLz6g0pPguQhePRUCStyUsSyp0UgHBnY3s5Mm3QgxRE7cECviA6xQy8UPLIkt0UXYQjOAJO4gskRDnKMuERusOWglN9BYuBLLwNzXtjApkTscqUOBc1rEIfgRVtBY9Ez57iZyL9zANylo+6+4IFEJBp5HaH18FuxiZKLBHdounoj/kbHNMm/QIJklGpzYZTfeYI9kkdD8JK6Z9jD2N/Z6wwYpNLmxQSrYIOlvo6zR8IZCLTrKox/Tp+dcs8Y69pxfAgwA8LJo1XDHtaoAAAAASUVORK5CYII=');
+}
+
+#parental-mode:hover, #dams:hover {
   opacity: .9;
-  pointer-events: none;
-}
-*/
-/*==============================
-  ε - posts
-==============================*/
-
-/* to counteract the fixed header, with
-  border or padding, then negative margin.
-  sadly, :target is applied to .reply and i do shit to
-  .replyContainer */
-
-/*
-.post:target {
-  border-top: 45px solid transparent;
-  margin-top: -15px;
-}
-*/
-
-.board::after, .board .thread::after, .postContainer::after, .post::after {
-  content: '';
-  display: table;
-  clear: both;
 }
 
-.board .thread, .postContainer {
-  position: relative;
-}
+.dams { color: #e3e3e3; background: #3d3d3d; transition: all .2s ease-in-out; }
+.dams #header-bar { background: #3d3d3d !important; transition: all .2s ease-in-out !important; }
+.dams .thread .postContainer { background: #3d3d3d; transition: all .2s ease-in-out; }
+.dams .thread .postContainer:nth-of-type(even) { background: #333; transition: all .2s ease-in-out; }
+.dams .summary { background: #3d3d3d; transition: all .2s ease-in-out; }
+.parental-mode .fileThumb { opacity: .15; }
 
-.fileThumb {
-  float: left;
-  margin-top: .5em;
-  margin-right: 1em;
-}
-
-.fileThumb > img {
-  display: block;
-  /*transform: scale(2);
-  width: 300px !important;
-  height: 300px !important;*/
-}
-
-/*
-.fileThumb > img { transform: scale(1.5); image-rendering: -moz-crisp-edges } 
-https://developer.mozilla.org/en-US/docs/CSS/image-rendering
-optimizeQuality
-*/
-
-.board > .stub {
-  padding: 1em 1.5em;
-  border-top: 1px solid #ababab;
-  border-bottom: 1px solid #ababab;
-  position: relative;
-}
-
-.thread, .stub {
-  margin: 1em 0;
-}
-
-.thread .stub {
-  margin: 0;
-}
-
-.thread .postContainer {
-  padding: 1em 1.5em;
-  border-top: 1px solid #ababab;
-  transition: box-shadow .2s;
-}
-
-.thread .postContainer:last-of-type {
-  border-bottom: 1px solid #ababab;
-}
-
-.thread .postContainer:nth-of-type(even) {
-  background-color: #f5f5f5;
+.view-thread {
+  text-transform: lowercase;
+  color: #fafafa !important;
+  background: #1e90ff;
+  padding: .25em .5em;
 }
 
 .postContainer .hide-thread-button,
@@ -301,274 +523,37 @@ optimizeQuality
   opacity: .9;
 }
 
-.dateTime, .abbr {
-  color: #ababab;
-}
-
-.quote {
-  color: #008542;
-}
-
-.post.reply .file,
-blockquote {
-  margin: 0 0 0 .5em;
-}
-
-.fileInfo,
-.summary {
-  font-size: .9em;
-}
-
-blockquote {
-  margin-top: .5em;
-}
-
-.op blockquote {
-  margin-bottom: 1.5em;
-}
-
-/*.summary {
-  float: right;
-  position: relative;
-  top: -1.5em;
-  left: -.5em;
-}*/
-.summary {
-  position: relative;
-  float: right;
-  border: 1px solid #ababab;
-  border-bottom: 0;
-  height: 30px;
-  line-height: 20px;
-  right: 24px;
-  bottom: 30px;
-  padding: 5px;
-  background-color: #fafafa;
-}
-
-.summary b {
-  font-size: 1.1em;
-}
-
-.container:not(:empty) {
-  display: block;
-  font-size: .75em;
-  margin-left: 2em;
-  opacity: .75;
-  color: #999;
-}
-
-.container:not(:empty)::before {
-  content: 'quoted by: ';
-}
-
-/* dat selector */
-
-.container .backlink:not(:only-child):not(:nth-last-child(2)):not(:last-child)::after {
-  content: ', ';
-  color: #999 !important;
-}
-
-.container .backlink:last-child:not(:only-child)::before {
-  content: ' and ';
-  color: #999 !important;
-}
-
-.container:not(:empty)::after {
-  content: '.';
-}
-
-.backlink:nth-child(10n-1)::before {
-  content: '';
-  display: block;
-}
-
-.postNum > span {
-  font-size: 0;
-  color: transparent;
-}
-
-.replylink {
-  font-size: 16px;
-  color: #fafafa !important;
-  text-transform: lowercase;
-  background-color: #1e90ff;
-  padding: .25em .5em;
-  /*border-radius: 2px;*/
-  transition: background-color .2s;
-}
-
-.replylink:hover {
-  background-color: #4169e1;
-}
-
-.moot {
-  box-shadow: inset 0 0 20px rgba(255, 100, 100, .25);
-}
-
-.qphl {
-  outline: 0 !important;
-  box-shadow: inset 0 0 20px rgba(255, 100, 100, .25);
-  padding: 1em 1.5em;
-  margin: -1em -1.5em;
-}
-
-.mod {
-  box-shadow: inset 0 0 20px rgba(145, 13, 188, .25);
-}
-
-.interest {
-  box-shadow: inset 0 0 20px rgba(20, 100, 200, .25);
-}
-
-.expanded-image .fileThumb {
-  margin: 0 0 .5em;
-}
-
-.closedIcon {
-  height: 16px;
-  padding-left: 16px;
-  width: 0;
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpERjQ5QUU2RjNEMjA2ODExODhDNkNCNjMxRDc2RjgxMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDowMDIxODUzMTJGNkIxMUUyOERFOTgyRDM3RTA1OTdGOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDowMDIxODUzMDJGNkIxMUUyOERFOTgyRDM3RTA1OTdGOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDg4MDExNzQwNzIwNjgxMThGNjJEQ0UzOTVCQjBGNUYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6REY0OUFFNkYzRDIwNjgxMTg4QzZDQjYzMUQ3NkY4MTIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4viBW/AAAAkklEQVR42mL4//8/AxZgD8QbgfgJFG+EiqEAsF4sBlSA5HDgCkIGgGz5A8Q/gbgaiKWhuBoqBpKzwWfAYWw2obnsAD4DPkAViWIxQBQq9wGfATC/4gIo8iC9TAwUAmQD9mKxCR1jqGUEOYORkZGBgNOxAbBeFmwSBDT+x+UFisNgiBrAQiiQSHHBDhL0wdUCBBgAfeJSbCc8/4YAAAAASUVORK5CYII=');
-}
-
-.stickyIcon {
-  height: 16px;
-  padding-left: 16px;
-  width: 0;
-  background: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAA2hpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYxIDY0LjE0MDk0OSwgMjAxMC8xMi8wNy0xMDo1NzowMSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDpERjQ5QUU2RjNEMjA2ODExODhDNkNCNjMxRDc2RjgxMiIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDpFNTlFQTU0QTJGNjcxMUUyOERFOTgyRDM3RTA1OTdGOSIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpFNTlFQTU0OTJGNjcxMUUyOERFOTgyRDM3RTA1OTdGOSIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgTWFjaW50b3NoIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RkI3RjExNzQwNzIwNjgxMTg3MUY4Q0I3NzJFRTk3MDYiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6REY0OUFFNkYzRDIwNjgxMTg4QzZDQjYzMUQ3NkY4MTIiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz528nlSAAAA4UlEQVR42mL4//8/AxpgA+IcID4AxD+h+ABUjA1dMQOaAdJAfB4kjAOfh6rBagDI9EtQhU+AOByqWBrKfgKVu4TiEiQDcqAKbgCxEAMmAIldharJwWbAYahkCANuEAhVcxibAT+hkvx4DOCBqvkJE2BCkvzOQDz4js2AfVDaCY9GVzS1KF5wgjrvKhGB6IQrHRxGikZQYEpAcQhSNO7Cl5AMgPgPnoT0DYhV8BkAAo14DKgglJRhKfIYFs3HiMkLMADy93Mkzc+hYgzEGgAClki50RJnxOIxAATSoBgnAAgwAKP8c4OWyannAAAAAElFTkSuQmCC');
-}
-
-/* spoiler */
-
-s {
-  text-decoration: none;
-  background-color: #3d3d3d;
-  transition: color .2s;
-}
-
-s::-moz-selection {
-  color: transparent;
-}
-
-s::selection {
-  color: transparent;
-}
-
-s:hover {
-  color: #fafafa;
-}
-
-s:hover::-moz-selection {
-  color: #3d3d3d;
-}
-
-s:hover::selection {
-  color: #3d3d3d;
-}
-
-.subject:not(:empty)::after {
-  content: ' by ';
-  font-weight: 300;
-}
-
-.prettyprint {
-  font-family: Source Code Pro, Inconsolata, monospace;
-  color: #fafafa;
-  background-color: #3d3d3d;
-  padding: .5em;
-  border: 1px solid #2d2d2d;
-  margin: 0;
-  white-space: pre-wrap;
-  display: inline-block;
-}
-/*
-.prettyprint .str { color: #edd400; }
-.prettyprint .kwd { color: #fafafa; font-weight: bold; }
-.prettyprint .com { color: #888a85; }
-.prettyprint .typ { color: #8ae234; font-weight: bold; }
-.prettyprint .lit { color: #edd400; }
-.prettyprint .pun { color: #d3d7cf; }
-.prettyprint .pln { color: #d3d7cf; }
-.prettyprint .tag { color: #729fcf; }
-.prettyprint .atn { color: #8ae234; font-weight: bold; }
-.prettyprint .atv { color: #edd400; }
-.prettyprint .dec { color: #ce5c00; }
-*/
-
-/* 
-  tomorrow night eighties prettify css
-  from: http://jmblog.github.io/color-themes-for-google-code-prettify/
-*/
-
-.prettyprint .str {color: #9c9}
-.prettyprint .kwd {color: #c9c}
-.prettyprint .com {color: #999}
-.prettyprint .typ {color: #69c}
-.prettyprint .lit {color: #f99157}
-.prettyprint .pun {color: #ccc}
-.prettyprint .opn {color: #ccc}
-.prettyprint .clo {color: #ccc}
-.prettyprint .tag {color: #f2777a}
-.prettyprint .atn {color: #f99157}
-.prettyprint .atv {color: #6cc}
-.prettyprint .dec {color: #f99157}
-.prettyprint .var {color: #f2777a}
-.prettyprint .fun {color: #69c}
-
-#qp {
-  background: rgba(250, 250, 250, .85) !important;
-  border: 1px solid #ababab !important;
-}
-
-#qp .post {
-  padding: 1em !important;
-}
-
-/* hide sauce links until hover */
-
-.file:not(:hover) > .fileInfo > a {
-  display: none;
-}
-
-.postNum > a:first-child {
-  font-size: 0;
-  color: transparent;
-}
-
-.postNum > a:first-child::before {
-  content: '#';
-  font-size: 16px;
-}
-
 .pages {
   font-size: 0;
   color: transparent;
   margin-top: 16px;
   display: -webkit-flex;
-  display: flex;
+  display: flex
 }
 
-/* THANK FUCK FOR FLEXBOX */
-
-.pages strong, .pages a {
-  font-size: 16px;
+.pages a {
+  font-size: 1rem;
   color: #3d3d3d !important;
+  display: block;
+  padding: 8px 0
+}
+
+.pages > strong,
+.pages > a {
   -webkit-flex: 1 1 auto;
           flex: 1 1 auto;
   text-align: center;
   border: 1px solid #ababab;
-  padding: 10px 0;
-  transition: background-color .2s;
+  border-right: 0;
+  transition: background-color .2s
 }
 
-.pages strong, .pages a:hover {
-  background-color: #ebebeb;
+.pages > *:last-child {
+  border-right: 1px solid #ababab;
 }
 
-/*==============================
-  η - 4chan X
-==============================*/
+.pages strong,
+.pages a:hover { background-color: #ebebeb }
 
 .dialog {
   box-shadow: none !important;
@@ -663,6 +648,10 @@ s:hover::selection {
 
 /* .deleted-post > .post */
 
+.deleted-post .post {
+  opacity: .25;
+}
+
 #watcher {
   position: fixed !important;
   top: -250px !important;
@@ -709,32 +698,6 @@ s:hover::selection {
 
 #watcher div a:first-child { color: #E61616 !important; }
 
-/*#watcher::after {
-  content: '';
-  display: block;
-  background: rgba(0,0,255,.5);
-  height: 25px;
-  width: 25px;
-  transform: rotate(45deg);
-  transform-origin: 100% 0%;
-  top: 32px;
-  right: 97px;
-  position: fixed;
-}
-
-#qr::after {
-  content: '';
-  display: block;
-  background: rgba(255,0,0,.5);
-  height: 32px;
-  width: 32px;
-  transform: rotate(45deg);
-  transform-origin: 50% 50%;
-  top: 15px;
-  right: 120px;
-  position: fixed;
-}*/
-
 #watcher:hover { z-index: 99 !important; }
 
 #qr:hover { z-index: 99 !important; }
@@ -759,6 +722,15 @@ a.show-announcement:hover { z-index: 99 !important; }
 
 .postContainer:hover .favicon[src^=h] {
   opacity: .9;
+}
+
+#qp {
+  background: rgba(250, 250, 250, .85) !important;
+  border: 1px solid #ababab !important;
+}
+
+#qp .post {
+  padding: .5em !important;
 }
 
 #qr::before {
@@ -1005,12 +977,10 @@ span.menu-button, a.menu-button {
 }
 
 .inline .postContainer {
-  padding: .5em;
   border: 0 !important;
 }
 
 .inline .post {
-  padding: 0 !important;
   min-width: 100%;
 }
 
@@ -1033,43 +1003,11 @@ span.menu-button, a.menu-button {
   margin-top: .5em;
 }
 
-/* i already clearfix posts. rare bug where when on
- the index, if the post under op has an image and
- is expanded, it will separate from the .summary */
-
-.expanded-image {
-  clear: none !important;
-}
-
-.postingMode ~ #delform .board .thread .op blockquote {
-  margin-bottom: .5em;
-}
-
-/*.board > .thread:first-child:nth-last-child(3) {
-  background-color: red;
-}*/
-/*
-.new {
-  animation: glow 30s linear 0s infinite alternate;
-}
-
-@keyframes glow {
-  from { background: green; }
-  to { background: red; }
-}
-*/
-/*
-#qp { max-width: 100vw; max-height: 100vh; overflow: scroll; !OR! transform: scale(.75); }
-*/
 @media (max-width: 960px) {
-html {font-size:.75em;}
-.thread .postContainer {padding:.5em .75em 1em;}
+html {font-size:75%;}
+#header-bar {font-size:1.3em!important;}
+.summary {bottom:20px;}
+.post {padding:.5em .75em 1em;}
 }
-
-}
-
-@-moz-document regexp("https?://boards\\.4chan\\.org\\/(.|..|...)\\/catalog") {
-
-/*body { background: red; }*/
 
 }
