@@ -1,6 +1,7 @@
 #curabitr v3.5 to-do list:
 
 * ~~show how to block the default 4chan stylesheets in the readme~~
+* include webfonts
 * catalogue support
 * comment entire stylesheet, also have a curabitr.min.css
 * 'mascot' support
