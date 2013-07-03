@@ -27,12 +27,13 @@
 \/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\/\*/
 
 /*@import url('http://fonts.googleapis.com/css?family=Open+Sans:400,700|Inconsolata');*/
-@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro:300');
+/*@import url('http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700|Source+Code+Pro:300');*/
 @-moz-document domain('boards.4chan.org') {
 
 .mobile, .boardBanner, .postingMode,
-hr:not(#unread-line), .center, .topad, .middlead, .bottomad,
-.navLinks, .navLinks + div, .deleteform, .stylechanger,
+hr:not(#unread-line), .navLinks, .navLinks + div,
+.center, .topad, .middlead, .bottomad, .ad-plea,
+.deleteform, .stylechanger, .mobilePostFormToggle,
 .pagelist .prev, .pagelist .next,
 .absBotText, .postInfo > input[value=delete] {
   display: none;
@@ -294,6 +295,10 @@ s:not(:hover) > .quote { color: #3d3d3d; }
 .parental-mode .fileThumb {
   opacity: .15;
 }
+
+/*
+.fileDeleted {}
+*/
 
 .postNum > a:first-child {
   font-size: 0;
@@ -1125,5 +1130,17 @@ span.menu-button:hover {
 .dams a.hide-announcement {
   filter: url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'invert\'><feColorMatrix type=\'matrix\' values=\'-1 0 0 0 1 0 -1 0 0 1 0 0 -1 0 1 0 0 0 1 0\'/></filter></svg>#invert");
 }
+
+.warning {
+  color: #e61616 !important;
+}
+
+/* /i/ specific */
+
+form[name=oeform] {
+  padding-top: 1em;
+}
+
+/* /f/ specific */
 
 }
